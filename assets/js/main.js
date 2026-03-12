@@ -121,9 +121,7 @@ const bioBody = document.getElementById("bioBody");
 const metaOgUrl = document.getElementById("metaOgUrl");
 const canonicalLink = document.getElementById("canonicalLink");
 
-const posterModal = document.getElementById("posterModal");
-const posterBackdrop = document.getElementById("posterBackdrop");
-const posterClose = document.getElementById("posterClose");
+const posterSection = document.getElementById("yatie");
 const posterPaper = document.getElementById("posterPaper");
 const posterQrCanvas = document.getElementById("posterQrCanvas");
 const posterSubtitle = document.getElementById("posterSubtitle");
@@ -163,6 +161,7 @@ const audioState = {
 
 function currentSiteUrl() {
   const url = new URL(window.location.href);
+  url.searchParams.delete("poster");
   url.hash = "";
   return url.toString();
 }
@@ -225,21 +224,47 @@ function drawOracle() {
 }
 
 function copyText(text, successMessage) {
-  if (!navigator.clipboard) {
-    showToast("当前环境不支持剪贴板复制。");
-    return Promise.resolve(false);
+  const legacyCopy = () => {
+    const helper = document.createElement("textarea");
+    helper.value = text;
+    helper.setAttribute("readonly", "true");
+    helper.style.position = "fixed";
+    helper.style.opacity = "0";
+    helper.style.pointerEvents = "none";
+    document.body.appendChild(helper);
+    helper.focus();
+    helper.select();
+    helper.setSelectionRange(0, helper.value.length);
+
+    let ok = false;
+
+    try {
+      ok = document.execCommand("copy");
+    } catch {
+      ok = false;
+    }
+
+    helper.remove();
+    return ok;
+  };
+
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        showToast(successMessage);
+        return true;
+      })
+      .catch(() => {
+        const ok = legacyCopy();
+        showToast(ok ? successMessage : "复制失败了，可能是浏览器在闹脾气。");
+        return ok;
+      });
   }
 
-  return navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      showToast(successMessage);
-      return true;
-    })
-    .catch(() => {
-      showToast("复制失败了，可能是浏览器在闹脾气。");
-      return false;
-    });
+  const ok = legacyCopy();
+  showToast(ok ? successMessage : "复制失败了，可能是浏览器在闹脾气。");
+  return Promise.resolve(ok);
 }
 
 function setShareMeta() {
@@ -525,28 +550,6 @@ function drawPosterQr() {
   return true;
 }
 
-function openPosterModal() {
-  if (!posterModal) {
-    return;
-  }
-
-  renderPosterTheme();
-  drawPosterQr();
-  posterModal.classList.add("is-open");
-  posterModal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-}
-
-function closePosterModal() {
-  if (!posterModal) {
-    return;
-  }
-
-  posterModal.classList.remove("is-open");
-  posterModal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
-}
-
 function waitForPosterAssets() {
   if (!posterPaper) {
     return Promise.resolve();
@@ -584,8 +587,10 @@ function downloadCanvas(canvas) {
       const link = document.createElement("a");
       link.href = url;
       link.download = filename;
+      document.body.appendChild(link);
       link.click();
-      URL.revokeObjectURL(url);
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 300);
       showToast("雅帖已装袋，拿去分享吧。");
     }, "image/png");
     return;
@@ -594,11 +599,13 @@ function downloadCanvas(canvas) {
   const link = document.createElement("a");
   link.href = canvas.toDataURL("image/png");
   link.download = filename;
+  document.body.appendChild(link);
   link.click();
+  link.remove();
   showToast("雅帖已装袋，拿去分享吧。");
 }
 
-async function downloadPoster() {
+async function downloadPoster(triggerButton = downloadPosterButton) {
   if (!posterPaper) {
     return;
   }
@@ -612,9 +619,13 @@ async function downloadPoster() {
   drawPosterQr();
   await waitForPosterAssets();
 
-  const originalText = downloadPosterButton.textContent;
-  downloadPosterButton.disabled = true;
-  downloadPosterButton.textContent = "正在成卷";
+  const activeButton = triggerButton instanceof HTMLElement ? triggerButton : downloadPosterButton;
+  const originalText = activeButton ? activeButton.textContent : "保存海报";
+
+  if (activeButton) {
+    activeButton.disabled = true;
+    activeButton.textContent = "正在成卷";
+  }
 
   try {
     const canvas = await window.html2canvas(posterPaper, {
@@ -629,30 +640,44 @@ async function downloadPoster() {
   } catch {
     showToast("海报导出时手滑了一下，稍后再试。");
   } finally {
-    downloadPosterButton.disabled = false;
-    downloadPosterButton.textContent = originalText;
+    if (activeButton) {
+      activeButton.disabled = false;
+      activeButton.textContent = originalText;
+    }
   }
 }
 
-function setupPosterModal() {
-  if (!posterModal) {
+function setupPosterSection() {
+  if (!posterPaper) {
     return;
   }
 
   renderPosterTheme();
   drawPosterQr();
 
+  const scrollToPoster = () => {
+    if (!posterSection) {
+      return;
+    }
+
+    posterSection.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start"
+    });
+  };
+
   openPosterButtons.forEach((button) => {
-    button.addEventListener("click", openPosterModal);
+    button.addEventListener("click", scrollToPoster);
   });
 
   if (openPosterSecondaryButton) {
-    openPosterSecondaryButton.addEventListener("click", openPosterModal);
+    openPosterSecondaryButton.addEventListener("click", () => downloadPoster(openPosterSecondaryButton));
   }
 
-  posterClose.addEventListener("click", closePosterModal);
-  posterBackdrop.addEventListener("click", closePosterModal);
-  downloadPosterButton.addEventListener("click", downloadPoster);
+  if (downloadPosterButton) {
+    downloadPosterButton.addEventListener("click", () => downloadPoster(downloadPosterButton));
+  }
+
   refreshPosterButton.addEventListener("click", () => {
     renderPosterTheme(true);
     drawPosterQr();
@@ -841,10 +866,6 @@ function setupGlobalEscape() {
     if (lightbox && lightbox.classList.contains("is-open")) {
       closeLightbox();
     }
-
-    if (posterModal && posterModal.classList.contains("is-open")) {
-      closePosterModal();
-    }
   });
 }
 
@@ -853,7 +874,9 @@ function setupDebugView() {
 
   if (params.get("poster") === "1") {
     window.setTimeout(() => {
-      openPosterModal();
+      if (posterSection) {
+        posterSection.scrollIntoView({ behavior: "auto", block: "start" });
+      }
     }, 900);
   }
 }
@@ -868,7 +891,7 @@ function init() {
   setupHeroParallax();
   setupEggs();
   setupLightbox();
-  setupPosterModal();
+  setupPosterSection();
   setupCopyButtons();
   setupAudio();
   setupGlobalEscape();
