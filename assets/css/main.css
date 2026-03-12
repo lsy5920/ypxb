@@ -851,6 +851,12 @@ textarea:focus {
   line-height: 1.75;
 }
 
+.poster-qr-copy small,
+.poster-tail-note,
+.poster-tips li {
+  font-size: 1rem;
+}
+
 .contact-method strong {
   display: block;
   margin: 0.95rem 0 0.8rem;
@@ -859,6 +865,7 @@ textarea:focus {
   background: rgba(91, 123, 105, 0.08);
   color: var(--green-deep);
   word-break: break-all;
+  font-size: 1rem;
 }
 
 .contact-method-actions {
@@ -1125,6 +1132,10 @@ textarea:focus {
 
 .poster-side-panel {
   padding: 1.5rem;
+}
+
+.poster-section .poster-workspace {
+  margin-top: 1rem;
 }
 
 .poster-paper {
@@ -1713,6 +1724,33 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
+  .hero {
+    gap: 1.8rem;
+  }
+
+  .hero-tags,
+  .hero-actions-row,
+  .contact-actions,
+  .oracle-actions,
+  .poster-actions,
+  .contact-method-actions {
+    gap: 0.7rem;
+  }
+
+  .hero-actions-row .button,
+  .contact-actions .button,
+  .oracle-actions .button,
+  .poster-actions .button,
+  .contact-method-actions .button,
+  .contact-method-actions .button.text,
+  .contact-method-actions a.button {
+    width: 100%;
+  }
+
+  .site-header {
+    background: rgba(249, 243, 232, 0.9);
+  }
+
   .daily-card,
   .daily-card.wide,
   .photo-card,
@@ -1754,7 +1792,7 @@ textarea:focus {
   }
 
   .section {
-    padding-block: 4.8rem;
+    padding-block: 4rem;
   }
 
   .site-header {
@@ -1767,37 +1805,99 @@ textarea:focus {
 
   .hero {
     padding-top: 8.2rem;
-    gap: 2rem;
+    gap: 1.5rem;
+    min-height: auto;
   }
 
   .hero-copy h1 {
-    font-size: clamp(2.5rem, 12vw, 3.8rem);
+    font-family: var(--font-body);
+    font-size: clamp(2.15rem, 9vw, 3rem);
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-lead,
+  .section-head p,
+  .paper-card p,
+  .saved-note,
+  #oracleDisplay,
+  .poster-side-panel p,
+  .poster-qr-copy p,
+  .poster-intro,
+  .poster-tips li {
+    font-size: 1rem;
+    line-height: 1.82;
+  }
+
+  .section-head h2,
+  .poster-head h2,
+  .portrait-copy h3,
+  .quote-card p,
+  .essay-feature p,
+  .oracle-display {
+    font-family: var(--font-body);
+    font-weight: 700;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.85rem, 7vw, 2.35rem);
+  }
+
+  .button {
+    min-height: 48px;
+    padding: 0.82rem 1.05rem;
+    font-size: 0.96rem;
+  }
+
+  .hero-tags {
+    margin: 1.2rem 0 1.2rem;
+  }
+
+  .hero-tags span {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.76rem;
+  }
+
+  .loader-kicker,
+  .section-kicker,
+  .eyebrow,
+  .card-topline,
+  .fact-label,
+  .daily-badge,
+  .contact-channel,
+  .poster-kicker,
+  .poster-panel-kicker {
+    letter-spacing: 0.14em;
+    font-size: 0.76rem;
   }
 
   .portrait-arch {
-    min-height: 460px;
-    border-radius: 28px 28px 120px 120px;
+    min-height: 400px;
+    border-radius: 24px 24px 92px 92px;
   }
 
   .portrait-arch::before {
-    border-radius: 18px 18px 108px 108px;
+    inset: 12px;
+    border-radius: 16px 16px 82px 82px;
   }
 
   .portrait-photo {
-    min-height: 460px;
+    min-height: 400px;
   }
 
   .portrait-copy {
-    left: 1.25rem;
-    right: 1.25rem;
-    bottom: 1.2rem;
-    padding: 1rem 1rem 1.05rem;
+    left: 0.95rem;
+    right: 0.95rem;
+    bottom: 0.95rem;
+    padding: 0.9rem 0.95rem 0.95rem;
+    border-radius: 18px;
   }
 
   .seal {
-    width: 96px;
-    height: 96px;
-    font-size: 1.4rem;
+    width: 82px;
+    height: 82px;
+    font-size: 1.2rem;
+    border-radius: 22px;
   }
 
   .feature-list li,
@@ -1824,6 +1924,28 @@ textarea:focus {
   .paper-card,
   .photo-overlay {
     padding: 1.2rem;
+  }
+
+  .fact-card,
+  .daily-card,
+  .contact-method,
+  .poster-side-panel,
+  .poster-preview-shell {
+    border-radius: 22px;
+  }
+
+  .photo-overlay {
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(20, 28, 24, 0.02), rgba(20, 28, 24, 0.72));
+  }
+
+  .photo-overlay h3 {
+    font-size: 1.1rem;
+  }
+
+  .photo-overlay p {
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
 
   .contact-method {
@@ -1855,8 +1977,8 @@ textarea:focus {
 
   .poster-paper {
     width: 100%;
-    padding: 1rem;
-    border-radius: 26px;
+    padding: 0.95rem;
+    border-radius: 22px;
   }
 
   .poster-seal {
@@ -1868,8 +1990,8 @@ textarea:focus {
   }
 
   .poster-main-photo {
-    min-height: 340px;
-    border-radius: 24px 24px 84px 84px;
+    min-height: 280px;
+    border-radius: 22px 22px 62px 62px;
   }
 
   .poster-side-photos {
@@ -1884,10 +2006,36 @@ textarea:focus {
 
   .poster-quote {
     font-size: 1.12rem;
+    padding: 0.88rem 0.9rem;
+    border-radius: 18px;
   }
 
   .poster-contact-strip p {
     padding-block: 0.55rem;
+  }
+
+  .poster-contact-strip,
+  .poster-qr-card {
+    border-radius: 20px;
+  }
+
+  .poster-head h2 {
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+    line-height: 1.14;
+  }
+
+  .poster-subtitle {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .poster-tags {
+    gap: 0.5rem;
+  }
+
+  .poster-tags span {
+    font-size: 0.84rem;
+    padding: 0.42rem 0.68rem;
   }
 
   .poster-close {
