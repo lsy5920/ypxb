@@ -174,7 +174,7 @@ async function ensureHtml2Canvas() {
   }
 
   if (!html2canvasPromise) {
-    html2canvasPromise = import("./assets/vendor/html2canvas.min.js?v=2")
+    html2canvasPromise = import("../vendor/html2canvas.min.js?v=2")
       .then((module) => module.default || window.html2canvas || module.html2canvas || null)
       .catch(() => null);
   }
