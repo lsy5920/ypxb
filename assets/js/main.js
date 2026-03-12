@@ -149,6 +149,7 @@ let toastTimer = null;
 let currentQuote = heroQuotes[0];
 let currentEssay = essayPages[0];
 let currentPosterTheme = posterThemes[0];
+let html2canvasPromise = null;
 
 const audioState = {
   ctx: null,
@@ -164,6 +165,31 @@ function currentSiteUrl() {
   url.searchParams.delete("poster");
   url.hash = "";
   return url.toString();
+}
+
+async function ensureHtml2Canvas() {
+  if (typeof window.html2canvas === "function") {
+    return window.html2canvas;
+  }
+
+  if (!html2canvasPromise) {
+    html2canvasPromise = import("./assets/vendor/html2canvas.min.js?v=2")
+      .then((module) => module.default || window.html2canvas || module.html2canvas || null)
+      .catch(() => null);
+  }
+
+  const lib = await html2canvasPromise;
+
+  if (typeof lib === "function") {
+    window.html2canvas = lib;
+    return lib;
+  }
+
+  if (typeof window.html2canvas === "function") {
+    return window.html2canvas;
+  }
+
+  return null;
 }
 
 function shortSiteUrl(url) {
@@ -610,7 +636,9 @@ async function downloadPoster(triggerButton = downloadPosterButton) {
     return;
   }
 
-  if (typeof window.html2canvas !== "function") {
+  const html2canvasLib = await ensureHtml2Canvas();
+
+  if (typeof html2canvasLib !== "function") {
     showToast("作画工具还没到位，先复制链接也不失礼。");
     return;
   }
@@ -628,7 +656,7 @@ async function downloadPoster(triggerButton = downloadPosterButton) {
   }
 
   try {
-    const canvas = await window.html2canvas(posterPaper, {
+    const canvas = await html2canvasLib(posterPaper, {
       backgroundColor: null,
       scale: Math.min(window.devicePixelRatio || 1, 2) * 2,
       useCORS: true,
