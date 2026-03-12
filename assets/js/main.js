@@ -169,6 +169,7 @@ function currentSiteUrl() {
 
 async function ensureHtml2Canvas() {
   if (typeof window.html2canvas === "function") {
+    markRuntimeReady();
     return window.html2canvas;
   }
 
@@ -182,10 +183,12 @@ async function ensureHtml2Canvas() {
 
   if (typeof lib === "function") {
     window.html2canvas = lib;
+    markRuntimeReady();
     return lib;
   }
 
   if (typeof window.html2canvas === "function") {
+    markRuntimeReady();
     return window.html2canvas;
   }
 
@@ -303,6 +306,11 @@ function setShareMeta() {
   if (metaOgUrl) {
     metaOgUrl.content = url;
   }
+}
+
+function markRuntimeReady() {
+  document.documentElement.dataset.qrcodeReady = String(typeof window.QRCode === "function");
+  document.documentElement.dataset.html2canvasReady = String(typeof window.html2canvas === "function");
 }
 
 function saveLocalNote() {
@@ -911,6 +919,7 @@ function setupDebugView() {
 
 function init() {
   setShareMeta();
+  markRuntimeReady();
   setupLoader();
   createPetals();
   revealOnScroll();
