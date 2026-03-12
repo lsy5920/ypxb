@@ -523,18 +523,18 @@
       </div>
     </section>
 
-    <section class="section chapter poster-section" id="yatie">
+    <section class="section chapter contact-section" id="liutie">
       <div class="section-head" data-reveal>
         <span class="section-index">捌</span>
         <div>
-          <p class="section-kicker">分享雅帖</p>
-          <h2>这一张名帖，适合留在手机里，也适合顺手发出去</h2>
-          <p>海报已经把照片、题签、二维码和联系方式收在一卷里。先看看效果，顺眼了再带走，也算分享得体。</p>
+          <p class="section-kicker">留帖与雅帖</p>
+          <h2>若有见教，敬请赐书；若觉顺眼，也可带走一卷</h2>
+          <p>这一节把联系方式、分享海报和留言回音都收在一起。想联系我、想保存海报、想顺手转发，都不必再绕路。</p>
         </div>
       </div>
 
-      <div class="poster-workspace" data-reveal>
-        <div class="poster-preview-shell">
+      <div class="liutie-grid">
+        <div class="poster-preview-shell" id="yatie" data-reveal>
           <section class="poster-paper" id="posterPaper">
             <span class="poster-seal">此帖可传</span>
 
@@ -597,105 +597,82 @@
           </section>
         </div>
 
-        <aside class="poster-side-panel">
-          <p class="poster-panel-kicker">分享雅帖</p>
-          <h3>看顺眼了，就把它带走</h3>
-          <p>这张海报是主页面实时预览，保存下来的效果和眼前看到的基本一致。发给朋友、转进群聊，都不算失礼。</p>
-          <div class="poster-actions">
-            <button class="button primary" id="downloadPoster" type="button">保存海报</button>
-            <button class="button ghost" id="copyPosterLinkSecondary" type="button">复制链接</button>
-            <button class="button text" id="refreshPoster" type="button">换一句题签</button>
-          </div>
+        <div class="liutie-side">
+          <article class="paper-card contact-card" data-reveal>
+            <div class="card-topline">来往与分享</div>
+            <h3>山高水远，幸得网页为桥。</h3>
+            <p>联系方式、海报分享和本站简介都放在这一侧。想认真来往，或想顺手带走一张雅帖，都可以从这里出发。</p>
 
-          <ul class="poster-tips">
-            <li>想发给别人之前，先点一次“换一句题签”，会更像一张有心思的小雅帖。</li>
-            <li>二维码默认对应当前页面地址，网站上线后也不用再单独改图。</li>
-            <li>如果浏览器一时别扭，先复制链接也不丢份。</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
+            <ul class="contact-list">
+              <li><span>网名</span><strong>蓝诗亦</strong></li>
+              <li><span>称号</span><strong>沐谦</strong></li>
+              <li><span>合作方向</span><strong>AI / 内容表达 / 创意策划 / 个人品牌</strong></li>
+              <li><span>回信习惯</span><strong>来意若清，回信更快；广告与群发，恕难尽复</strong></li>
+            </ul>
 
-    <section class="section chapter contact-section" id="liutie">
-      <div class="section-head" data-reveal>
-        <span class="section-index">玖</span>
-        <div>
-          <p class="section-kicker">留帖处</p>
-          <h2>若有见教，敬请赐书</h2>
-          <p>无论合作邀约、交流请教，还是路过留句，都欢迎循此来访。来意若清，回信也会更快一点。</p>
+            <div class="contact-grid">
+              <article class="contact-method">
+                <span class="contact-channel">扣扣传书</span>
+                <h4>QQ</h4>
+                <p>若事起仓促，可走此路，投石问讯最快。</p>
+                <strong>3199912548</strong>
+                <div class="contact-method-actions">
+                  <button class="button ghost" type="button" data-copy-value="3199912548" data-copy-success="QQ号已复制，去敲门就行。">复制QQ号</button>
+                </div>
+              </article>
+
+              <article class="contact-method">
+                <span class="contact-channel">微信会友</span>
+                <h4>微信</h4>
+                <p>若想从容长谈，可加此号，煮字论天。</p>
+                <strong>ykxklmyt0611</strong>
+                <div class="contact-method-actions">
+                  <button class="button ghost" type="button" data-copy-value="ykxklmyt0611" data-copy-success="微信号已复制，茶水已备，等你来聊。">复制微信号</button>
+                </div>
+              </article>
+
+              <article class="contact-method">
+                <span class="contact-channel">飞鸿投简</span>
+                <h4>邮箱</h4>
+                <p>若有正事长信，烦请飞鸿投简，最宜细谈。</p>
+                <strong>3199912548@qq.com</strong>
+                <div class="contact-method-actions">
+                  <button class="button ghost" type="button" data-copy-value="3199912548@qq.com" data-copy-success="邮箱已复制，写封信过来吧。">复制邮箱</button>
+                  <a class="button text" href="mailto:3199912548@qq.com">写封邮件</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="poster-actions compact">
+              <button class="button primary" id="downloadPoster" type="button">保存海报</button>
+              <button class="button ghost" id="copyPosterLinkSecondary" type="button">复制链接</button>
+              <button class="button text" id="refreshPoster" type="button">换一句题签</button>
+            </div>
+
+            <div class="contact-actions">
+              <button class="button primary" id="copyProfile" type="button">复制本站简介</button>
+              <button class="button ghost" id="copySiteLink" type="button">复制网站链接</button>
+              <button class="button text" data-open-poster type="button">定位雅帖</button>
+            </div>
+          </article>
+
+          <article class="paper-card oracle-card" data-reveal>
+            <div class="card-topline">留一句回音</div>
+            <p class="oracle-display" id="oracleDisplay">若这一卷刚好顺眼，不妨抽一支签，再给此刻留一句话。</p>
+            <div class="oracle-actions">
+              <button class="button ghost" id="copyPosterLink" type="button">复制链接</button>
+              <button class="button text" id="drawOracle" type="button">抽一支签</button>
+            </div>
+
+            <label class="note-label" for="selfNote">若此刻有感，也可顺手留一句</label>
+            <textarea id="selfNote" rows="4" placeholder="比如：愿你继续保留一点可爱，也多一点底气。"></textarea>
+            <div class="oracle-actions">
+              <button class="button primary" id="saveNote" type="button">封存此念</button>
+              <button class="button text" id="clearNote" type="button">清空上一条</button>
+            </div>
+            <div class="saved-note" id="savedNote">还没有留字。你先写一句，风会替你记着。</div>
+          </article>
         </div>
-      </div>
-
-      <div class="contact-layout">
-        <article class="paper-card contact-card" data-reveal>
-          <div class="card-topline">名帖尾声</div>
-          <h3>山高水远，幸得网页为桥。</h3>
-          <p>我相信稳定陪伴，也相信并肩作战；若刚好你也喜欢真诚、分寸和一点不油腻的幽默，那我们大概能聊得来。</p>
-
-          <ul class="contact-list">
-            <li><span>网名</span><strong>蓝诗亦</strong></li>
-            <li><span>称号</span><strong>沐谦</strong></li>
-            <li><span>合作方向</span><strong>AI / 内容表达 / 创意策划 / 个人品牌</strong></li>
-            <li><span>回信习惯</span><strong>来意若清，回信更快；广告与群发，恕难尽复</strong></li>
-          </ul>
-
-          <div class="contact-grid">
-            <article class="contact-method">
-              <span class="contact-channel">扣扣传书</span>
-              <h4>QQ</h4>
-              <p>若事起仓促，可走此路，投石问讯最快。</p>
-              <strong>3199912548</strong>
-              <div class="contact-method-actions">
-                <button class="button ghost" type="button" data-copy-value="3199912548" data-copy-success="QQ号已复制，去敲门就行。">复制QQ号</button>
-              </div>
-            </article>
-
-            <article class="contact-method">
-              <span class="contact-channel">微信会友</span>
-              <h4>微信</h4>
-              <p>若想从容长谈，可加此号，煮字论天。</p>
-              <strong>ykxklmyt0611</strong>
-              <div class="contact-method-actions">
-                <button class="button ghost" type="button" data-copy-value="ykxklmyt0611" data-copy-success="微信号已复制，茶水已备，等你来聊。">复制微信号</button>
-              </div>
-            </article>
-
-            <article class="contact-method">
-              <span class="contact-channel">飞鸿投简</span>
-              <h4>邮箱</h4>
-              <p>若有正事长信，烦请飞鸿投简，最宜细谈。</p>
-              <strong>3199912548@qq.com</strong>
-              <div class="contact-method-actions">
-                <button class="button ghost" type="button" data-copy-value="3199912548@qq.com" data-copy-success="邮箱已复制，写封信过来吧。">复制邮箱</button>
-                <a class="button text" href="mailto:3199912548@qq.com">写封邮件</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="contact-actions">
-            <button class="button primary" id="copyProfile" type="button">复制本站简介</button>
-            <button class="button ghost" id="copySiteLink" type="button">复制网站链接</button>
-            <button class="button text" data-open-poster type="button">预览雅帖</button>
-          </div>
-        </article>
-
-        <article class="paper-card oracle-card" data-reveal>
-          <div class="card-topline">分享此卷</div>
-          <p class="oracle-display" id="oracleDisplay">若这一卷刚好顺眼，不妨带走一张雅帖，顺手也给此刻留一句话。</p>
-          <div class="oracle-actions">
-            <button class="button primary" id="openPosterSecondary" type="button">保存海报</button>
-            <button class="button ghost" id="copyPosterLink" type="button">复制链接</button>
-            <button class="button text" id="drawOracle" type="button">抽一支签</button>
-          </div>
-
-          <label class="note-label" for="selfNote">若此刻有感，也可顺手留一句</label>
-          <textarea id="selfNote" rows="4" placeholder="比如：愿你继续保留一点可爱，也多一点底气。"></textarea>
-          <div class="oracle-actions">
-            <button class="button primary" id="saveNote" type="button">封存此念</button>
-            <button class="button text" id="clearNote" type="button">清空上一条</button>
-          </div>
-          <div class="saved-note" id="savedNote">还没有留字。你先写一句，风会替你记着。</div>
-        </article>
       </div>
     </section>
   </main>

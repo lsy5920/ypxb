@@ -770,6 +770,23 @@ textarea:focus {
   gap: 1.3rem;
 }
 
+.liutie-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.78fr);
+  gap: 1.3rem;
+  align-items: start;
+}
+
+.liutie-side {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+#yatie {
+  scroll-margin-top: 6.8rem;
+}
+
 .bio-card h3,
 .essay-feature h3,
 .contact-card h3,
@@ -875,6 +892,10 @@ textarea:focus {
 }
 
 .contact-card .contact-actions {
+  margin-top: 1.45rem;
+}
+
+.contact-card .poster-actions.compact {
   margin-top: 1.45rem;
 }
 
@@ -1134,7 +1155,7 @@ textarea:focus {
   padding: 1.5rem;
 }
 
-.poster-section .poster-workspace {
+.contact-section .liutie-grid {
   margin-top: 1rem;
 }
 
@@ -1625,6 +1646,7 @@ textarea:focus {
   .chapter-grid,
   .proof-layout,
   .contact-layout,
+  .liutie-grid,
   .essay-layout {
     grid-template-columns: 1fr;
   }
@@ -1633,6 +1655,10 @@ textarea:focus {
   .practice-grid,
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .liutie-side {
+    grid-template-columns: 1fr;
   }
 
   .hero-visual {
@@ -1732,6 +1758,10 @@ textarea:focus {
   .principle-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .liutie-side {
+    gap: 0.9rem;
   }
 
   .hero {
