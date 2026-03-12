@@ -1,0 +1,50 @@
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:19] "HEAD / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:38] "HEAD /assets/vendor/qrcode.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:38] "HEAD /assets/vendor/html2canvas.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET /assets/css/main.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET /%E5%9B%BE%E7%89%87/%E4%B8%AA%E4%BA%BA%E7%85%A7%E7%89%87.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET /%E5%9B%BE%E7%89%87/%E6%AD%A6%E5%8A%9F%E5%B1%B1%E9%A1%B6%E6%8B%8D%E7%85%A7.jpg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET /%E5%9B%BE%E7%89%87/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E7%A9%BF%E8%8A%B1%E6%97%A6%E8%A1%A8%E6%BC%94.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET /assets/vendor/qrcode.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET /assets/vendor/html2canvas.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET /%E5%9B%BE%E7%89%87/%E6%B3%B0%E5%B1%B1%E5%B1%B1%E9%A1%B6%E6%97%A5%E5%87%BA.jpg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:27:58] "GET /assets/js/main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:28:05] code 404, message File not found
+::ffff:127.0.0.1 - - [13/Mar/2026 04:28:05] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET /assets/css/main.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET /%E5%9B%BE%E7%89%87/%E4%B8%AA%E4%BA%BA%E7%85%A7%E7%89%87.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET /%E5%9B%BE%E7%89%87/%E6%AD%A6%E5%8A%9F%E5%B1%B1%E9%A1%B6%E6%8B%8D%E7%85%A7.jpg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET /%E5%9B%BE%E7%89%87/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E7%A9%BF%E8%8A%B1%E6%97%A6%E8%A1%A8%E6%BC%94.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET /assets/vendor/qrcode.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET /assets/vendor/html2canvas.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET /%E5%9B%BE%E7%89%87/%E6%B3%B0%E5%B1%B1%E5%B1%B1%E9%A1%B6%E6%97%A5%E5%87%BA.jpg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:31] "GET /assets/js/main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:45] code 404, message File not found
+::ffff:127.0.0.1 - - [13/Mar/2026 04:29:45] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET /assets/css/main.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET /%E5%9B%BE%E7%89%87/%E4%B8%AA%E4%BA%BA%E7%85%A7%E7%89%87.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET /%E5%9B%BE%E7%89%87/%E6%AD%A6%E5%8A%9F%E5%B1%B1%E9%A1%B6%E6%8B%8D%E7%85%A7.jpg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET /%E5%9B%BE%E7%89%87/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E7%A9%BF%E8%8A%B1%E6%97%A6%E8%A1%A8%E6%BC%94.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET /%E5%9B%BE%E7%89%87/%E6%B3%B0%E5%B1%B1%E5%B1%B1%E9%A1%B6%E6%97%A5%E5%87%BA.jpg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET /assets/vendor/qrcode.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET /assets/vendor/html2canvas.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:02] "GET /assets/js/main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:32] code 404, message File not found
+::ffff:127.0.0.1 - - [13/Mar/2026 04:31:32] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:32:57] "HEAD /assets/js/main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /?poster=1 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /assets/css/main.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /%E5%9B%BE%E7%89%87/%E4%B8%AA%E4%BA%BA%E7%85%A7%E7%89%87.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /%E5%9B%BE%E7%89%87/%E6%AD%A6%E5%8A%9F%E5%B1%B1%E9%A1%B6%E6%8B%8D%E7%85%A7.jpg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /%E5%9B%BE%E7%89%87/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E7%A9%BF%E8%8A%B1%E6%97%A6%E8%A1%A8%E6%BC%94.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /%E5%9B%BE%E7%89%87/%E6%B3%B0%E5%B1%B1%E5%B1%B1%E9%A1%B6%E6%97%A5%E5%87%BA.jpg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /assets/vendor/qrcode.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /assets/vendor/html2canvas.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:21] "GET /assets/js/main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:31] code 404, message File not found
+::ffff:127.0.0.1 - - [13/Mar/2026 04:33:31] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:35:38] "HEAD /assets/vendor/qrcode.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Mar/2026 04:35:38] "HEAD /assets/vendor/html2canvas.min.js HTTP/1.1" 200 -
