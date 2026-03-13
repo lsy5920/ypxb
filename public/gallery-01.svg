@@ -1,0 +1,13 @@
+<svg width="720" height="880" viewBox="0 0 720 880" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="880" rx="40" fill="#F8F1E8"/>
+  <rect x="22" y="22" width="676" height="836" rx="30" stroke="#D6E3DB" stroke-width="2"/>
+  <path d="M0 0H720V220C618 252 498 268 360 268C222 268 102 252 0 220V0Z" fill="#DCECF4"/>
+  <circle cx="546" cy="152" r="74" fill="#FFF8F0"/>
+  <path d="M0 566C109 518 203 500 281 504C374 509 431 566 514 566C584 566 646 530 720 506V880H0V566Z" fill="#D8E9E1"/>
+  <path d="M0 664C100 612 208 590 302 596C404 603 466 666 562 669C621 671 672 650 720 628V880H0V664Z" fill="#B7D8CA"/>
+  <path d="M169 296C148 348 128 399 106 446" stroke="#91B6A3" stroke-width="6" stroke-linecap="round"/>
+  <path d="M132 342C177 360 209 379 224 404" stroke="#91B6A3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M116 386C158 400 184 418 200 441" stroke="#91B6A3" stroke-width="4" stroke-linecap="round"/>
+  <text x="360" y="758" fill="#2B4849" font-size="46" font-family="serif" text-anchor="middle">名帖主像位</text>
+  <text x="360" y="808" fill="#557776" font-size="22" font-family="serif" text-anchor="middle">等真人照来接班前，先由清风竹影值守。</text>
+</svg>

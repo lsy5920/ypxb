@@ -1,0 +1,136 @@
+# 蓝诗亦的江湖名帖
+
+一座基于 `Next.js 15 + Tailwind CSS` 打造的国风个人主页。
+
+整体定位不是传统简历站，而是“个人江湖名帖”：
+
+- 园林诗意、白昼清朗、古籍气质
+- 半认真半整活，幽默但不轻浮
+- 首页强调照片位、简介、随笔与互动感
+- 支持静态导出，便于部署到 GitHub Pages
+
+## 技术栈
+
+- `Next.js 15`（App Router）
+- `Tailwind CSS 4`
+- `Framer Motion`
+- `Lucide React`
+
+## 已实现内容
+
+- 首页沉浸式名帖布局
+- `蓝诗亦 / 沐谦` 双身份切换互动
+- 国风插画占位图与照片簿页面
+- 随笔列表页与文章详情页
+- 作品列表页与作品详情页
+- 投帖处（联系页）
+- 鼠标光晕、卡片倾斜、随机签语、可选环境声
+- GitHub Pages 静态导出配置
+
+## 本地启动
+
+```bash
+npm install
+npm run dev
+```
+
+默认访问：`http://localhost:3000`
+
+## 常用命令
+
+```bash
+npm run dev
+npm run build
+```
+
+## 项目结构
+
+```text
+app/
+  about/                # 小传页
+  blog/                 # 随笔列表与详情
+  contact/              # 投帖处
+  gallery/              # 照片簿
+  works/                # 作品列表与详情
+  layout.tsx            # 全站布局
+  page.tsx              # 首页
+components/
+  layout/               # 头部、底部
+  ui/                   # 动画与交互组件
+content/
+  site.ts               # 站点主信息、照片簿、联系信息等
+  blog.ts               # 随笔数据
+  works.ts              # 作品数据
+public/
+  avatar-placeholder.svg
+  gallery-01.svg
+  gallery-02.svg
+  gallery-03.svg
+  gallery-04.svg
+```
+
+## 后续如何替换成你的真实内容
+
+### 1. 替换照片
+
+当前照片位使用的是 SVG 占位图：
+
+- `public/avatar-placeholder.svg`
+- `public/gallery-01.svg`
+- `public/gallery-02.svg`
+- `public/gallery-03.svg`
+- `public/gallery-04.svg`
+
+你可以直接用同名图片替换，或者修改 `content/site.ts` 里的 `galleryEntries` 路径。
+
+### 2. 修改文案
+
+主要内容数据集中在：
+
+- `content/site.ts`
+- `content/blog.ts`
+- `content/works.ts`
+
+后续如果你要补充真实联系方式、更新随笔、增加作品，优先改这些文件即可。
+
+### 3. 补充联系信息
+
+目前联系页采用“预留坑位”策略，没有乱写虚构联系方式。
+
+你后续可以在 `content/site.ts` 中修改 `contactCards`，填入：
+
+- 邮箱
+- 微信
+- GitHub
+- 小红书 / 其他社交账号
+
+## GitHub Pages 部署
+
+本项目已按静态站方式配置：
+
+- `next.config.ts` 开启了 `output: "export"`
+- 图片使用 `unoptimized`，适配静态托管
+- 自动处理 GitHub Pages 仓库子路径场景
+
+构建命令：
+
+```bash
+npm run build
+```
+
+构建产物输出到 `out/`。
+
+如果你推送到 GitHub，并启用 Pages，本仓库中的工作流会自动部署。
+
+## 设计说明
+
+- 主色：浅蓝、青绿、粉色、宣纸米白
+- 视觉：园林诗意、窗棂、竹影、卷页、白昼感
+- 气质：阳光、温暖、幽默、正直、清醒
+- 文案：现代口语 + 轻古风嘴贫
+
+## 备注
+
+- 当前没有真实照片，因此首页与照片簿采用了高质量占位方案
+- 当前没有真实联系方式，因此联系页保留了可直接替换的展示位
+- 如果后续你继续优化、增删页面或补充真实内容，记得同步更新这份 `README.md`
