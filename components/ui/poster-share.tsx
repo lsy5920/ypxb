@@ -21,7 +21,6 @@ import {
   posterScenes,
   profile,
 } from "@/content/site";
-import { withBasePath } from "@/lib/asset-path";
 
 type PosterSceneKey = keyof typeof posterScenes;
 
@@ -146,7 +145,7 @@ export function PosterShare() {
         setError("二维码生成失败，请稍后再试。");
       })
       .finally(() => {
-      setLoadingQr(false);
+        setLoadingQr(false);
       });
   }, [pathname]);
 
@@ -252,7 +251,7 @@ export function PosterShare() {
                     园林名帖式分享海报
                   </h2>
                   <p className="text-base leading-8 text-ink/70">
-                    海报会自动读取当前页面地址生成二维码，适合直接分享到微信、朋友圈或社交平台。
+                    这次改成更稳定的纯文字装饰版，重点保留名字、气质文案和二维码，适合直接分享。
                   </p>
                 </div>
 
@@ -286,10 +285,10 @@ export function PosterShare() {
                     <span>海报内容</span>
                   </div>
                   <div className="mt-4 space-y-3 text-sm leading-7 text-ink/70">
-                    <p>主图：个人主像</p>
+                    <p>类型：纯文字装饰海报</p>
                     <p>主题：白昼园林、宣纸名帖、轻印章感</p>
                     <p>二维码：直达当前页面</p>
-                    <p>适配：移动端优先，适合长图分享</p>
+                    <p>适配：移动端优先，强调稳定导出与完整展示</p>
                   </div>
                 </div>
 
@@ -368,98 +367,77 @@ const PosterSheet = forwardRef<HTMLDivElement, PosterSheetProps>(
         style={{ width: `${POSTER_WIDTH}px`, height: `${POSTER_HEIGHT}px` }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.78),transparent_42%),radial-gradient(circle_at_bottom,rgba(231,196,192,0.28),transparent_34%),linear-gradient(180deg,#faf7f0_0%,#f5efe4_100%)]" />
-        <div className="absolute left-[46px] top-[54px] h-[130px] w-[130px] rounded-full bg-[radial-gradient(circle,rgba(169,208,187,0.2),transparent_68%)]" />
-        <div className="absolute bottom-[112px] right-[-86px] h-[286px] w-[286px] rounded-full border border-[#d7e0d9] bg-[radial-gradient(circle,rgba(255,255,255,0.42),rgba(255,250,246,0.18)_58%,transparent_70%)]" />
+        <div className="absolute left-[40px] top-[78px] h-[124px] w-[124px] rounded-full bg-[radial-gradient(circle,rgba(169,208,187,0.22),transparent_70%)]" />
+        <div className="absolute right-[-96px] top-[224px] h-[320px] w-[320px] rounded-full border border-[#d7e0d9] bg-[radial-gradient(circle,rgba(255,255,255,0.34),rgba(255,250,246,0.15)_58%,transparent_72%)]" />
+        <div className="absolute left-[62px] top-[96px] h-[2px] w-[180px] bg-[linear-gradient(90deg,rgba(147,182,173,0.5),transparent)]" />
+        <div className="absolute left-[62px] top-[922px] h-[2px] w-[230px] bg-[linear-gradient(90deg,rgba(147,182,173,0.5),transparent)]" />
 
-        <div className="relative z-10 grid h-full px-[54px] pb-[46px] pt-[42px]" style={{ gridTemplateRows: "100px 566px 92px 170px 68px 1fr" }}>
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-[24px] tracking-[0.32em] text-[#6a8980] uppercase">Share Poster</p>
-              <p className="mt-[18px] text-[18px] text-[#5d7c7a]">园林名帖式分享海报</p>
-            </div>
+        <div className="absolute right-[56px] top-[58px] rounded-[38px] bg-[#b84f4c] px-[38px] py-[34px] text-center text-[#fff5ef] shadow-[0_12px_32px_rgba(141,58,58,0.22)]">
+          <p className="font-display text-[86px] leading-none">谦</p>
+          <p className="mt-[10px] text-[22px] tracking-[0.16em] uppercase">Seal</p>
+        </div>
 
-            <div className="rounded-[36px] bg-[#b84f4c] px-[34px] py-[30px] text-center text-[#fff5ef] shadow-[0_12px_32px_rgba(141,58,58,0.22)]">
-              <p className="font-display text-[82px] leading-none">谦</p>
-              <p className="mt-[8px] text-[22px] tracking-[0.16em] uppercase">Seal</p>
-            </div>
-          </div>
+        <div className="absolute left-[62px] top-[62px] z-10 w-[540px]">
+          <p className="text-[26px] tracking-[0.32em] text-[#6a8980] uppercase">Share Poster</p>
+          <p className="mt-[30px] rounded-full border border-[#d8e3db] bg-white/72 px-[22px] py-[10px] text-[18px] text-[#587673]">
+            {scene.badge}
+          </p>
+        </div>
 
-          <div className="rounded-[46px] border border-white/70 bg-[linear-gradient(180deg,rgba(231,242,239,0.82),rgba(255,247,243,0.72))] p-[18px] shadow-[0_18px_42px_rgba(35,67,66,0.12)]">
-            <div className="relative h-full overflow-hidden rounded-[34px] border border-white/70 bg-white/70">
-              <div className="absolute left-[18px] top-[18px] z-10 rounded-full bg-white/88 px-[28px] py-[12px] text-[22px] text-[#4e6d6b] shadow-[0_8px_20px_rgba(35,67,66,0.08)]">
-                {scene.badge}
-              </div>
-              <div className="absolute right-[18px] top-[18px] z-10 rounded-full border border-white/70 bg-white/78 px-[24px] py-[12px] text-[20px] text-[#587673]">
-                白昼园林模式
-              </div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),transparent_46%)]" />
-              <img
-                src={withBasePath("/photos/hero-portrait.png")}
-                alt="蓝诗亦海报主视觉"
-                className="h-full w-full object-cover object-center"
-                crossOrigin="anonymous"
-              />
-            </div>
-          </div>
+        <div className="absolute left-[62px] top-[256px] z-10 w-[676px]">
+          <p className="font-display text-[128px] leading-[0.95] text-[#224748]">{profile.name}</p>
+          <p className="mt-[18px] text-[30px] text-[#5d7c7a]">
+            字 {profile.courtesyName} · {profile.city}
+          </p>
+        </div>
 
-          <div className="flex items-end justify-between gap-[22px] pt-[18px]">
-            <div>
-              <p className="font-display text-[96px] leading-none text-[#224748]">{profile.name}</p>
-              <p className="mt-[10px] text-[24px] text-[#5d7c7a]">
-                字 {profile.courtesyName} · {profile.city}
-              </p>
-            </div>
-            <span className="rounded-full bg-emerald-100/90 px-[26px] py-[12px] text-[22px] text-emerald-950">
-              {scene.stamp}
+        <div className="absolute left-[62px] top-[486px] z-10 w-[716px]">
+          <h3 className="text-[68px] font-semibold leading-[1.18] text-[#234849]">{scene.title}</h3>
+          <p className="mt-[28px] text-[28px] leading-[1.8] text-[#5a7270]">{scene.quote}</p>
+        </div>
+
+        <div
+          className="absolute left-[62px] top-[760px] z-10 grid gap-[14px]"
+          style={{ width: "676px", gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
+        >
+          {posterHighlights.slice(0, 3).map((item) => (
+            <span
+              key={item}
+              className="inline-flex h-[72px] items-center justify-center rounded-full border border-[#dbe7df] bg-white/86 px-[20px] text-center text-[22px] leading-none whitespace-nowrap break-keep text-[#476664]"
+            >
+              {item}
             </span>
-          </div>
+          ))}
+        </div>
 
-          <div className="pt-[12px]">
-            <h3 className="text-[58px] font-semibold leading-[1.24] text-[#234849]">{scene.title}</h3>
-            <p className="mt-[22px] text-[24px] leading-[1.7] text-[#5a7270]">{scene.quote}</p>
-          </div>
+        <div className="absolute left-[62px] bottom-[64px] z-10 w-[458px] rounded-[36px] border border-[#dce5de] bg-white/84 px-[28px] py-[26px] shadow-[0_12px_28px_rgba(35,67,66,0.08)]">
+          <p className="text-[18px] tracking-[0.24em] text-[#6b8780] uppercase">名帖小注</p>
+          <p className="mt-[18px] text-[28px] leading-[1.8] text-[#516a68]">{scene.note}</p>
+          <p className="mt-[18px] text-[18px] leading-[1.7] text-[#7b8f8d]">{posterFooterQuote}</p>
+          <p className="mt-[16px] text-[16px] text-[#8b9a99]">{shareUrl ? getDisplayUrl(shareUrl) : "正在读取当前页面地址..."}</p>
+        </div>
 
-          <div className="grid grid-cols-3 gap-[14px] pt-[4px]">
-            {posterHighlights.slice(0, 3).map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-[#dbe7df] bg-white/86 px-[20px] py-[16px] text-center text-[22px] text-[#476664]"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <div className="grid items-stretch gap-[18px] pt-[20px]" style={{ gridTemplateColumns: "1fr 236px" }}>
-            <div className="rounded-[34px] border border-[#dce5de] bg-white/84 p-[24px] shadow-[0_12px_28px_rgba(35,67,66,0.08)]">
-              <p className="text-[18px] tracking-[0.24em] text-[#6b8780] uppercase">今日小注</p>
-              <p className="mt-[18px] text-[28px] leading-[1.8] text-[#516a68]">{scene.note}</p>
-              <p className="mt-[16px] text-[18px] leading-[1.7] text-[#7b8f8d]">{posterFooterQuote}</p>
+        <div className="absolute bottom-[64px] right-[56px] z-10 w-[246px] rounded-[36px] border border-[#dce5de] bg-white/88 p-[18px] shadow-[0_12px_28px_rgba(35,67,66,0.08)]">
+          <div className="rounded-[28px] bg-[linear-gradient(180deg,#f8fbf8_0%,#f4f1eb_100%)] p-[16px]">
+            <div className="flex h-[206px] items-center justify-center rounded-[22px] border border-[#dbe6de] bg-white">
+              {loadingQr ? (
+                <LoaderCircle className="size-16 animate-spin text-[#6a8980]" />
+              ) : qrDataUrl ? (
+                <img
+                  src={qrDataUrl}
+                  alt="网站分享二维码"
+                  className="h-[176px] w-[176px]"
+                  crossOrigin="anonymous"
+                />
+              ) : (
+                <QrCode className="size-16 text-[#6a8980]" />
+              )}
             </div>
-
-            <div className="rounded-[34px] border border-[#dce5de] bg-white/88 p-[18px] shadow-[0_12px_28px_rgba(35,67,66,0.08)]">
-              <div className="flex h-full flex-col rounded-[26px] bg-[linear-gradient(180deg,#f8fbf8_0%,#f4f1eb_100%)] p-[16px]">
-                <div className="flex min-h-[184px] flex-1 items-center justify-center rounded-[20px] border border-[#dbe6de] bg-white">
-                  {loadingQr ? (
-                    <LoaderCircle className="size-16 animate-spin text-[#6a8980]" />
-                  ) : qrDataUrl ? (
-                    <img
-                      src={qrDataUrl}
-                      alt="网站分享二维码"
-                      className="h-[176px] w-[176px]"
-                      crossOrigin="anonymous"
-                    />
-                  ) : (
-                    <QrCode className="size-16 text-[#6a8980]" />
-                  )}
-                </div>
-                <p className="mt-[14px] text-center text-[18px] leading-[1.5] text-[#56706e]">
-                  长按识别
-                  <br />
-                  来我园子里坐坐
-                </p>
-              </div>
-            </div>
+            <p className="mt-[14px] text-center text-[18px] leading-[1.6] text-[#56706e]">
+              长按识别
+              <br />
+              来我园子里坐坐
+            </p>
           </div>
         </div>
       </div>

@@ -401,7 +401,13 @@ export const fortuneReplies: FortuneReply[] = [
 ];
 
 export const ambientHints = [
-  "园林风声已开张，请轻拿轻放你的烦心事。",
-  "耳边长出一点点诗意，不会吵，只会轻轻飘。",
-  "这不是背景音乐，这是今天的松弛许可证。",
+  "《清明雨上》已经就位，适合把心情慢慢放轻。",
+  "这首歌一响，园林、晚风和旧纸页就都有了声音。",
+  "别急着赶路，先让耳朵替你把氛围安顿好。",
 ];
+
+export const ambientTrack = {
+  title: "清明雨上",
+  artist: "许嵩",
+  file: "/audio/qingming-yushang.mp3",
+};

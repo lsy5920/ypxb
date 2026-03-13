@@ -1,75 +1,51 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Music2, Volume2, VolumeX } from "lucide-react";
-import { ambientHints } from "@/content/site";
+import { ambientHints, ambientTrack } from "@/content/site";
+import { withBasePath } from "@/lib/asset-path";
 
 export function AmbientToggle() {
   const [enabled, setEnabled] = useState(false);
-  const [tip, setTip] = useState(ambientHints[0]);
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const timerRef = useRef<number | null>(null);
-
-  const notes = useMemo(() => [220, 247, 294, 330], []);
-
-  const stopAmbient = () => {
-    if (timerRef.current) {
-      window.clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-  };
-
-  const playChime = () => {
-    const context = audioContextRef.current;
-
-    if (!context) {
-      return;
-    }
-
-    const now = context.currentTime;
-    const gain = context.createGain();
-    gain.connect(context.destination);
-    gain.gain.setValueAtTime(0.0001, now);
-
-    notes.forEach((frequency, index) => {
-      const oscillator = context.createOscillator();
-      oscillator.type = index % 2 === 0 ? "sine" : "triangle";
-      oscillator.frequency.setValueAtTime(frequency, now);
-      oscillator.connect(gain);
-
-      const startAt = now + index * 0.12;
-      const endAt = startAt + 1.2;
-
-      oscillator.start(startAt);
-      oscillator.stop(endAt);
-      gain.gain.linearRampToValueAtTime(0.018, startAt + 0.03);
-      gain.gain.exponentialRampToValueAtTime(0.0001, endAt);
-    });
-  };
+  const [tip, setTip] = useState(`当前曲目：${ambientTrack.title} · ${ambientTrack.artist}`);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleToggle = async () => {
-    if (enabled) {
-      stopAmbient();
-      setEnabled(false);
-      setTip("园林环境声已歇业，风景还在。");
+    const audio = audioRef.current;
+
+    if (!audio) {
       return;
     }
 
-    if (!audioContextRef.current) {
-      audioContextRef.current = new AudioContext();
+    if (enabled) {
+      audio.pause();
+      setEnabled(false);
+      setTip("背景音乐已暂停，园林的风景还在。");
+      return;
     }
 
-    await audioContextRef.current.resume();
-    playChime();
-    timerRef.current = window.setInterval(playChime, 5200);
-    setEnabled(true);
-    setTip(ambientHints[Math.floor(Math.random() * ambientHints.length)]);
+    try {
+      // 真实音频播放器会保留当前位置暂停/继续，比之前的合成提示音更适合作为背景音乐。
+      await audio.play();
+      setEnabled(true);
+      setTip(ambientHints[Math.floor(Math.random() * ambientHints.length)]);
+    } catch {
+      setTip("浏览器拦住了自动播放，请再点一次按钮试试。");
+    }
   };
 
   useEffect(() => {
+    const audio = new Audio(withBasePath(ambientTrack.file));
+    audio.loop = true;
+    audio.preload = "metadata";
+    audio.volume = 0.42;
+
+    audioRef.current = audio;
+
     return () => {
-      stopAmbient();
-      void audioContextRef.current?.close();
+      audio.pause();
+      audio.src = "";
+      audioRef.current = null;
     };
   }, []);
 
@@ -83,7 +59,7 @@ export function AmbientToggle() {
         type="button"
         onClick={handleToggle}
         className="inline-flex size-10 items-center justify-center rounded-full bg-emerald-100/80 text-emerald-950 transition-transform duration-300 hover:-translate-y-0.5"
-        aria-label={enabled ? "关闭园林环境声" : "开启园林环境声"}
+        aria-label={enabled ? `暂停 ${ambientTrack.title}` : `播放 ${ambientTrack.title}`}
       >
         {enabled ? <Volume2 className="size-4" /> : <VolumeX className="size-4" />}
       </button>
