@@ -115,13 +115,15 @@ const lightboxBackdrop = document.getElementById("lightboxBackdrop");
 const lightboxClose = document.getElementById("lightboxClose");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxCaption = document.getElementById("lightboxCaption");
+const posterModal = document.getElementById("posterModal");
+const posterBackdrop = document.getElementById("posterBackdrop");
+const posterClose = document.getElementById("posterClose");
 const bioTitle = document.getElementById("bioTitle");
 const bioLead = document.getElementById("bioLead");
 const bioBody = document.getElementById("bioBody");
 const metaOgUrl = document.getElementById("metaOgUrl");
 const canonicalLink = document.getElementById("canonicalLink");
 
-const posterSection = document.getElementById("yatie");
 const posterPaper = document.getElementById("posterPaper");
 const posterQrCanvas = document.getElementById("posterQrCanvas");
 const posterSubtitle = document.getElementById("posterSubtitle");
@@ -131,10 +133,7 @@ const posterHint = document.getElementById("posterHint");
 const posterTailNote = document.getElementById("posterTailNote");
 const posterUrlText = document.getElementById("posterUrlText");
 const downloadPosterButton = document.getElementById("downloadPoster");
-const copyPosterLinkButton = document.getElementById("copyPosterLink");
-const copyPosterLinkSecondaryButton = document.getElementById("copyPosterLinkSecondary");
 const refreshPosterButton = document.getElementById("refreshPoster");
-const openPosterSecondaryButton = document.getElementById("openPosterSecondary");
 const openPosterButtons = document.querySelectorAll("[data-open-poster]");
 const copyValueButtons = document.querySelectorAll("[data-copy-value]");
 
@@ -528,6 +527,28 @@ function closeLightbox() {
   }, 240);
 }
 
+function openPosterModal() {
+  if (!posterModal) {
+    return;
+  }
+
+  renderPosterTheme();
+  drawPosterQr();
+  posterModal.classList.add("is-open");
+  posterModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closePosterModal() {
+  if (!posterModal) {
+    return;
+  }
+
+  posterModal.classList.remove("is-open");
+  posterModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
 function setupLightbox() {
   const triggers = document.querySelectorAll("[data-lightbox-src]");
   if (!triggers.length || !lightbox) {
@@ -684,50 +705,35 @@ async function downloadPoster(triggerButton = downloadPosterButton) {
 }
 
 function setupPosterSection() {
-  if (!posterPaper) {
+  if (!posterPaper || !posterModal) {
     return;
   }
 
   renderPosterTheme();
   drawPosterQr();
 
-  const scrollToPoster = () => {
-    if (!posterSection) {
-      return;
-    }
-
-    posterSection.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      block: "start"
-    });
-  };
-
   openPosterButtons.forEach((button) => {
-    button.addEventListener("click", scrollToPoster);
+    button.addEventListener("click", openPosterModal);
   });
-
-  if (openPosterSecondaryButton) {
-    openPosterSecondaryButton.addEventListener("click", () => downloadPoster(openPosterSecondaryButton));
-  }
 
   if (downloadPosterButton) {
     downloadPosterButton.addEventListener("click", () => downloadPoster(downloadPosterButton));
   }
 
-  refreshPosterButton.addEventListener("click", () => {
-    renderPosterTheme(true);
-    drawPosterQr();
-    showToast("题签已换，新的一句更适合出门见人。");
-  });
-
-  const copyLink = () => copyText(currentSiteUrl(), "网站链接已复制，转发这一下很体面。");
-
-  if (copyPosterLinkButton) {
-    copyPosterLinkButton.addEventListener("click", copyLink);
+  if (posterClose) {
+    posterClose.addEventListener("click", closePosterModal);
   }
 
-  if (copyPosterLinkSecondaryButton) {
-    copyPosterLinkSecondaryButton.addEventListener("click", copyLink);
+  if (posterBackdrop) {
+    posterBackdrop.addEventListener("click", closePosterModal);
+  }
+
+  if (refreshPosterButton) {
+    refreshPosterButton.addEventListener("click", () => {
+      renderPosterTheme(true);
+      drawPosterQr();
+      showToast("题签已换，新的一句更适合出门见人。");
+    });
   }
 }
 
@@ -902,6 +908,10 @@ function setupGlobalEscape() {
     if (lightbox && lightbox.classList.contains("is-open")) {
       closeLightbox();
     }
+
+    if (posterModal && posterModal.classList.contains("is-open")) {
+      closePosterModal();
+    }
   });
 }
 
@@ -910,9 +920,7 @@ function setupDebugView() {
 
   if (params.get("poster") === "1") {
     window.setTimeout(() => {
-      if (posterSection) {
-        posterSection.scrollIntoView({ behavior: "auto", block: "start" });
-      }
+      openPosterModal();
     }, 900);
   }
 }
