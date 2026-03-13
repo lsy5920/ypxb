@@ -19,6 +19,7 @@ const basePath = getBasePath();
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
+  outputFileTracingRoot: process.cwd(),
   images: {
     unoptimized: true,
   },

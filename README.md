@@ -15,6 +15,8 @@
 - `Tailwind CSS 4`
 - `Framer Motion`
 - `Lucide React`
+- `html-to-image`
+- `qrcode`
 
 ## 已实现内容
 
@@ -24,6 +26,7 @@
 - 随笔列表页与文章详情页
 - 作品列表页与作品详情页
 - 投帖处（联系页）
+- 当前页二维码分享海报生成与 PNG 下载
 - 鼠标光晕、卡片倾斜、随机签语、可选环境声
 - GitHub Pages 静态导出配置
 
@@ -99,6 +102,21 @@ public/
 - GitHub
 - 小红书 / 其他社交账号
 
+### 4. 分享海报
+
+站点左下角提供了“生成海报”入口。
+
+- 海报会自动读取当前页面地址并生成二维码
+- 主图默认使用个人主像 `public/photos/hero-portrait.png`
+- 支持在浏览器中直接下载 PNG
+- 若浏览器下载失败，也可以长按海报预览图保存
+
+海报主要内容配置位于：
+
+- `content/site.ts` 的 `posterScenes`
+- `content/site.ts` 的 `posterHighlights`
+- `components/ui/poster-share.tsx`
+
 ## GitHub Pages 部署
 
 本项目已按静态站方式配置：
@@ -133,3 +151,4 @@ npm run build
 ## 更新日志
 
 - `2026-03-13`：优化 GitHub Pages 子路径静态资源前缀；将整站文案调整为更适合对外展示的平衡版语气，强化可信度与成熟感；接入真实邮箱与微信联系方式。
+- `2026-03-13 17:37`：新增园林名帖式分享海报功能，支持根据当前页面地址生成二维码、预览海报并下载 PNG；同步补充依赖与文档说明。

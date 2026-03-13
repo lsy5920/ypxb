@@ -49,6 +49,14 @@ export type FortuneReply = {
   hint: string;
 };
 
+export type PosterScene = {
+  badge: string;
+  title: string;
+  quote: string;
+  note: string;
+  stamp: string;
+};
+
 export const profile = {
   name: "蓝诗亦",
   courtesyName: "沐谦",
@@ -307,6 +315,62 @@ export const contactCards: ContactCard[] = [
     note: "比起客套寒暄，我更喜欢直接进入真实、具体的话题。",
   },
 ];
+
+export const posterHighlights = [
+  "阳光",
+  "温暖",
+  "幽默",
+  "正直",
+  "杭州",
+  "ENFP",
+];
+
+export const posterScenes: Record<string, PosterScene> = {
+  home: {
+    badge: "当前页 · 首页",
+    title: "把温柔、幽默与分寸感写进日常",
+    quote: "扫一扫，比我做一整段自我介绍更快，也更有画面感。",
+    note: "如果你愿意，可以从这张海报开始认识我：先看气质，再慢慢了解来路。",
+    stamp: "欢迎串门",
+  },
+  about: {
+    badge: "当前页 · 小传",
+    title: "如果要认识一个人，不妨从他的原则与日常开始",
+    quote: "这页没有夸张设定，只有一些真实发生过、也真实塑造了我的片段。",
+    note: "比起一句标签，我更希望别人从生活方式、处世观和表达里看见我。",
+    stamp: "慢慢认识",
+  },
+  works: {
+    badge: "当前页 · 造物录",
+    title: "想法要有去处，表达也要有完成度",
+    quote: "作品可以慢一点长大，但不想只停在“看起来不错”。",
+    note: "这里放的是我已经做出的东西，以及我正在认真推进的方向。",
+    stamp: "认真打磨",
+  },
+  blog: {
+    badge: "当前页 · 随笔集",
+    title: "写给生活，也写给认真看世界的人",
+    quote: "我喜欢把散步、成长、关系和那些微妙心绪，写成能被慢慢读下去的文字。",
+    note: "如果你也偏爱有温度的表达，也许会在这里读到一些共鸣。",
+    stamp: "今日可读",
+  },
+  gallery: {
+    badge: "当前页 · 照片簿",
+    title: "山野、戏台与日常，一起拼成更真实的我",
+    quote: "照片不是摆拍说明书，更像是一些气质与时刻的现场记录。",
+    note: "主像、山顶、戏台，各自说了一点话，合起来才更像完整的我。",
+    stamp: "请看图说话",
+  },
+  contact: {
+    badge: "当前页 · 投帖处",
+    title: "带着想法来，也欢迎带着真诚来",
+    quote: "邮箱和微信已经备好。如果你刚好也有想法，不妨来聊一聊。",
+    note: "合作、交流、灵感交换，或者只是认真打个招呼，这里都欢迎。",
+    stamp: "等你来信",
+  },
+};
+
+export const posterFooterQuote = "人还算靠谱，审美尽量在线。";
 
 export const fortuneReplies: FortuneReply[] = [
   {

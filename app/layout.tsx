@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { AmbientToggle } from "@/components/ui/ambient-toggle";
 import { CursorBloom } from "@/components/ui/cursor-bloom";
 import { FloatingPetals } from "@/components/ui/floating-petals";
+import { PosterShare } from "@/components/ui/poster-share";
 import { withBasePath } from "@/lib/asset-path";
 import "./globals.css";
 
@@ -57,6 +58,7 @@ export default function RootLayout({
         <SiteHeader />
         <main className="relative z-10">{children}</main>
         <SiteFooter />
+        <PosterShare />
         <AmbientToggle />
       </body>
     </html>
