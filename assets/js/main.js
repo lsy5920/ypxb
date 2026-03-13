@@ -118,6 +118,7 @@ const lightboxCaption = document.getElementById("lightboxCaption");
 const posterModal = document.getElementById("posterModal");
 const posterBackdrop = document.getElementById("posterBackdrop");
 const posterClose = document.getElementById("posterClose");
+const posterDialog = posterModal ? posterModal.querySelector(".poster-dialog") : null;
 const bioTitle = document.getElementById("bioTitle");
 const bioLead = document.getElementById("bioLead");
 const bioBody = document.getElementById("bioBody");
@@ -537,6 +538,10 @@ function openPosterModal() {
   posterModal.classList.add("is-open");
   posterModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
+
+  if (posterDialog) {
+    posterDialog.scrollTop = 0;
+  }
 }
 
 function closePosterModal() {
@@ -628,6 +633,12 @@ function waitForPosterAssets() {
   );
 }
 
+function waitForNextPaint() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => requestAnimationFrame(resolve));
+  });
+}
+
 function downloadCanvas(canvas) {
   const filename = `lanyishi-yatie-${Date.now()}.png`;
 
@@ -675,6 +686,12 @@ async function downloadPoster(triggerButton = downloadPosterButton) {
   renderPosterTheme();
   drawPosterQr();
   await waitForPosterAssets();
+
+  if (document.fonts && document.fonts.ready) {
+    await document.fonts.ready.catch(() => undefined);
+  }
+
+  await waitForNextPaint();
 
   const activeButton = triggerButton instanceof HTMLElement ? triggerButton : downloadPosterButton;
   const originalText = activeButton ? activeButton.textContent : "保存海报";
