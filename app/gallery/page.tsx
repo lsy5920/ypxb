@@ -8,7 +8,7 @@ import { galleryEntries } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "照片簿",
-  description: "蓝诗亦的照片簿占位页：在真人照补齐前，先用国风意境图把气质立住。",
+  description: "蓝诗亦的真实照片簿：主像、泰山日出、武功山留影与花旦表演。",
 };
 
 export default function GalleryPage() {
@@ -16,12 +16,12 @@ export default function GalleryPage() {
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 lg:px-8">
       <PageBanner
         eyebrow="照片簿"
-        title="真人照暂未登场，先让氛围感把门面守住。"
-        description="你明确说了想先展示照片和简介，但现在暂时没有素材。所以这页采用“可直接替换”的国风占位图方式：排版先定型，后面把 SVG 换成你的真实照片即可。"
+        title="照片已经到场，山野、晚霞和戏台都替我作证。"
+        description="这页现在不再是占位图，而是真人照片正式上场：首屏主像、山顶记忆、少年感留影、花旦表演，一起把温柔、风骨和反差感拼完整。"
         aside={
           <div className="space-y-3">
-            <p>当前素材：4 张可替换插画占位图。</p>
-            <p>后续更新：直接替换 `public/` 内同名图片即可。</p>
+            <p>当前素材：4 张真实照片，已经全部接进页面。</p>
+            <p>首页主像已联动，照片簿也同步替换完成。</p>
             <p>视觉方向：白昼园林、清朗、轻戏剧感。</p>
           </div>
         }
@@ -57,13 +57,13 @@ export default function GalleryPage() {
       <Reveal className="paper-panel rounded-[2rem] p-6 sm:p-8">
         <div className="flex items-center gap-2 text-sm text-emerald-900/80">
           <ImageIcon className="size-4" />
-          <span>后续补图提示</span>
+          <span>照片更新说明</span>
         </div>
         <p className="mt-4 text-lg leading-8 text-ink/78">
-          如果你后面补上真实照片，这一页会从“意境占位”立刻升级为“本人亲自镇场”。目前的布局、动效和卡片比例都已经按正式展示页配置好了。
+          这页现在已经是正式照片簿了。后续如果你继续补图，只要沿着 `public/photos/` 和 `content/site.ts` 的结构往里加，就能继续扩展。
         </p>
         <p className="mt-4 text-sm leading-7 text-ink/66">
-          小声说一句：照片还没来，但气质已经先把门撑住了，这波不亏。
+          小声说一句：这次不是意境代班，是本人亲自镇场，效果明显更能打。
         </p>
       </Reveal>
     </div>

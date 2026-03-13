@@ -20,7 +20,7 @@
 
 - 首页沉浸式名帖布局
 - `蓝诗亦 / 沐谦` 双身份切换互动
-- 国风插画占位图与照片簿页面
+- 真人照片主视觉与照片簿页面
 - 随笔列表页与文章详情页
 - 作品列表页与作品详情页
 - 投帖处（联系页）
@@ -62,26 +62,21 @@ content/
   blog.ts               # 随笔数据
   works.ts              # 作品数据
 public/
-  avatar-placeholder.svg
-  gallery-01.svg
-  gallery-02.svg
-  gallery-03.svg
-  gallery-04.svg
+  photos/
 ```
 
 ## 后续如何替换成你的真实内容
 
 ### 1. 替换照片
 
-当前照片位使用的是 SVG 占位图：
+当前真实照片放在 `public/photos/`：
 
-- `public/avatar-placeholder.svg`
-- `public/gallery-01.svg`
-- `public/gallery-02.svg`
-- `public/gallery-03.svg`
-- `public/gallery-04.svg`
+- `public/photos/hero-portrait.png`
+- `public/photos/mount-taishan-sunrise.jpg`
+- `public/photos/wugong-mountain.jpg`
+- `public/photos/huadan-performance.png`
 
-你可以直接用同名图片替换，或者修改 `content/site.ts` 里的 `galleryEntries` 路径。
+如果你后续要换图，可以直接替换这些文件，或者修改 `content/site.ts` 里的 `galleryEntries` 路径。
 
 ### 2. 修改文案
 
@@ -131,6 +126,6 @@ npm run build
 
 ## 备注
 
-- 当前没有真实照片，因此首页与照片簿采用了高质量占位方案
+- 当前首页和照片簿已经接入真实图片素材
 - 当前没有真实联系方式，因此联系页保留了可直接替换的展示位
 - 如果后续你继续优化、增删页面或补充真实内容，记得同步更新这份 `README.md`

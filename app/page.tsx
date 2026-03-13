@@ -104,14 +104,14 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/60 bg-[linear-gradient(180deg,rgba(245,252,251,0.8),rgba(255,244,247,0.78))] p-4">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.42),transparent_62%)]" />
               <div className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1 text-xs text-ink/70">
-                真人照席位已预留，现由意境先顶班
+                主像本人已到场，春风和樱花负责捧场
               </div>
               <div className="relative">
                 <Image
-                  src="/avatar-placeholder.svg"
-                  alt="蓝诗亦的国风主视觉占位图"
-                  width={780}
-                  height={920}
+                  src="/photos/hero-portrait.png"
+                  alt="蓝诗亦在樱花树下身着青色古风服装的主视觉照片"
+                  width={1600}
+                  height={1600}
                   className="h-auto w-full rounded-[1.4rem]"
                   priority
                 />
@@ -254,8 +254,8 @@ export default function Home() {
       <section id="blog" className="section-anchor">
         <SectionTitle
           eyebrow="随笔集"
-          title="照片没到位没关系，句子先出来营业"
-          description="你最想让别人先看到简介和随笔，所以这里把情绪、清醒和幽默都写成可点击的诗页。"
+          title="照片已经到位，句子也继续认真营业"
+          description="你最想让别人先看到简介和随笔，所以这里继续把情绪、清醒和幽默写成可点击的诗页。"
           action={
             <Link
               href="/blog"
@@ -296,8 +296,8 @@ export default function Home() {
       <section id="gallery" className="section-anchor">
         <SectionTitle
           eyebrow="照片簿"
-          title="真人照暂时请假，意境图先替我维持气质"
-          description="没有照片就先不硬凑。先用国风插画与文案把位置留好，等你后续补图时，只需要替换资源就能上新。"
+          title="照片已经到场，山野、花影和戏台一起证明气质在线"
+          description="主像放在首屏，其他三张收进照片簿：一张顶峰，一张山野，一张戏台，刚好把温柔、少年和反差感都拼完整。"
           action={
             <Link
               href="/gallery"

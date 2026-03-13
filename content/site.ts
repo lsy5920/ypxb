@@ -91,7 +91,7 @@ export const navLinks: NavLink[] = [
     href: "/gallery",
     label: "照片簿",
     short: "照片",
-    description: "真人照暂未出场，意境先顶上。",
+    description: "主像、山野和戏台都已经到场。",
   },
   {
     href: "/contact",
@@ -258,28 +258,28 @@ export const favorites: FavoriteCard[] = [
 
 export const galleryEntries: GalleryEntry[] = [
   {
-    title: "名帖主像位",
-    image: "/gallery-01.svg",
+    title: "樱树下的主像",
+    image: "/photos/hero-portrait.png",
     tag: "封面席",
-    caption: "真人照还没就位，先请园林意境和松弛感替我站岗。",
+    caption: "首屏主视觉本人已到场。樱花、晚霞、青衣和玫瑰，把温柔与君子感一次讲明白。",
   },
   {
-    title: "傍晚散步预备图",
-    image: "/gallery-02.svg",
-    tag: "杭州场景",
-    caption: "如果在 17 点到 22 点看到一个人边走边想事，可能就是我。",
+    title: "泰山日出",
+    image: "/photos/mount-taishan-sunrise.jpg",
+    tag: "顶峰见",
+    caption: "“山高路远，我们顶峰相见”这句话终于有了现场照片，而且还是日出限定版。",
   },
   {
-    title: "可爱桌面精神投影",
-    image: "/gallery-03.svg",
-    tag: "性格暴露",
-    caption: "别怀疑，靠谱和可爱确实可以同时在线。",
+    title: "武功山定格",
+    image: "/photos/wugong-mountain.jpg",
+    tag: "少年气",
+    caption: "云雾、冲锋衣、一本正经摆 pose。清醒隐士和热血少年在这张里短暂联名。",
   },
   {
-    title: "晴天出门限定款",
-    image: "/gallery-04.svg",
-    tag: "白昼模式",
-    caption: "晴天像我的生活底色：明亮、轻盈，偶尔还自带一点戏剧效果。",
+    title: "花旦时刻",
+    image: "/photos/huadan-performance.png",
+    tag: "反差彩蛋",
+    caption: "学校里的花旦表演照，很适合证明：我不止会整活，戏台上的温柔和分寸感也接得住。",
   },
 ];
 
