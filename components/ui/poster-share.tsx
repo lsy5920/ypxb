@@ -93,7 +93,12 @@ function getPosterFileName(sceneKey: PosterSceneKey) {
 }
 
 function getDisplayUrl(url: string) {
-  return url.replace(/^https?:\/\//, "");
+  try {
+    const parsed = new URL(url);
+    return `${parsed.host}${parsed.pathname}`;
+  } catch {
+    return url.replace(/^https?:\/\//, "");
+  }
 }
 
 export function PosterShare() {
@@ -160,9 +165,9 @@ export function PosterShare() {
       const dataUrl = await toPng(posterRef.current, {
         cacheBust: true,
         backgroundColor: "#f7f3ea",
-        pixelRatio: 2,
-        canvasWidth: width * 2,
-        canvasHeight: height * 2,
+        pixelRatio: 3,
+        canvasWidth: width * 3,
+        canvasHeight: height * 3,
       });
 
       const link = document.createElement("a");
@@ -224,7 +229,7 @@ export function PosterShare() {
                     园林名帖式分享海报
                   </h2>
                   <p className="text-base leading-8 text-ink/70">
-                    这张海报会自动使用你当前所在页面的地址生成二维码。适合分享到微信、朋友圈或社交平台，也适合留作一张很有你个人气质的数字名帖。
+                    海报会自动读取当前页面地址生成二维码，适合直接分享到微信、朋友圈或社交平台。
                   </p>
                 </div>
 
@@ -314,30 +319,30 @@ const PosterSheet = forwardRef<HTMLDivElement, PosterSheetProps>(
     return (
       <div
         ref={ref}
-        className="relative mx-auto flex aspect-[3/4] w-full max-w-[26rem] flex-col overflow-hidden rounded-[2rem] border border-[#dbe5dc] bg-[#f7f3ea] p-5 text-[#244849] shadow-[0_20px_60px_rgba(35,67,66,0.18)] sm:p-6"
+        className="relative mx-auto flex aspect-[10/16] w-full max-w-[22rem] flex-col overflow-hidden rounded-[2rem] border border-[#dbe5dc] bg-[#f7f3ea] p-4 text-[#244849] shadow-[0_20px_60px_rgba(35,67,66,0.18)] sm:max-w-[23rem] sm:p-5"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.78),transparent_42%),radial-gradient(circle_at_bottom,rgba(231,196,192,0.28),transparent_34%),linear-gradient(180deg,#faf7f0_0%,#f5efe4_100%)]" />
-        <div className="absolute left-5 top-18 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(169,208,187,0.2),transparent_68%)]" />
-        <div className="absolute right-0 top-16 h-56 w-24 rounded-l-full border-l border-[#d6ddd7] bg-[linear-gradient(180deg,rgba(255,255,255,0.66),rgba(255,248,244,0.32))] px-3 py-6 text-center text-xs tracking-[0.28em] text-[#6b8780] [writing-mode:vertical-rl]">
+        <div className="absolute left-3 top-16 h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(169,208,187,0.2),transparent_68%)]" />
+        <div className="absolute right-0 top-14 h-44 w-20 rounded-l-full border-l border-[#d6ddd7] bg-[linear-gradient(180deg,rgba(255,255,255,0.66),rgba(255,248,244,0.32))] px-2 py-5 text-center text-[11px] tracking-[0.22em] text-[#6b8780] [writing-mode:vertical-rl]">
           个人江湖名帖
         </div>
 
         <div className="relative flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs tracking-[0.32em] text-[#6a8980] uppercase">Share Poster</p>
-            <h2 className="mt-3 font-display text-5xl text-[#224748] sm:text-6xl">
+            <p className="text-[11px] tracking-[0.32em] text-[#6a8980] uppercase">Share Poster</p>
+            <h2 className="mt-2.5 font-display text-[3.1rem] leading-none text-[#224748] sm:text-[3.45rem]">
               {profile.name}
             </h2>
-            <p className="mt-2 text-sm text-[#5d7c7a]">字 {profile.courtesyName}</p>
+            <p className="mt-1.5 text-xs text-[#5d7c7a] sm:text-sm">字 {profile.courtesyName}</p>
           </div>
 
-          <div className="rounded-[1.3rem] bg-[#b84f4c] px-4 py-3 text-center text-[#fff5ef] shadow-[0_12px_32px_rgba(141,58,58,0.22)]">
-            <p className="font-display text-3xl leading-none">谦</p>
+          <div className="rounded-[1.15rem] bg-[#b84f4c] px-3.5 py-3 text-center text-[#fff5ef] shadow-[0_12px_32px_rgba(141,58,58,0.22)]">
+            <p className="font-display text-[2.4rem] leading-none">谦</p>
             <p className="mt-1 text-[10px] tracking-[0.2em] uppercase">Seal</p>
           </div>
         </div>
 
-        <div className="relative mt-5 overflow-hidden rounded-[1.8rem] border border-white/70 bg-white shadow-[0_18px_42px_rgba(35,67,66,0.12)]">
+        <div className="relative mt-4 h-[11.8rem] shrink-0 overflow-hidden rounded-[1.55rem] border border-white/70 bg-white shadow-[0_18px_42px_rgba(35,67,66,0.12)] sm:h-[12.8rem]">
           <div className="absolute left-4 top-4 z-10 rounded-full bg-white/88 px-3 py-1 text-xs text-[#4e6d6b] shadow-[0_8px_20px_rgba(35,67,66,0.08)]">
             {scene.badge}
           </div>
@@ -349,51 +354,51 @@ const PosterSheet = forwardRef<HTMLDivElement, PosterSheetProps>(
           />
         </div>
 
-        <div className="relative mt-5 space-y-3">
-          <h3 className="text-[1.65rem] font-semibold leading-[1.28] text-[#234849] sm:text-[1.8rem]">
+        <div className="relative mt-4 shrink-0 space-y-2.5">
+          <h3 className="text-[1.28rem] font-semibold leading-[1.22] text-[#234849] sm:text-[1.42rem]">
             {scene.title}
           </h3>
-          <p className="text-sm leading-7 text-[#5a7270]">{scene.quote}</p>
+          <p className="text-[13px] leading-6 text-[#5a7270]">{scene.quote}</p>
         </div>
 
-        <div className="relative mt-4 grid grid-cols-3 gap-2.5">
+        <div className="relative mt-3 shrink-0 grid grid-cols-3 gap-2">
           {posterHighlights.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-[#dbe7df] bg-white/86 px-3 py-2 text-center text-xs text-[#476664]"
+              className="rounded-full border border-[#dbe7df] bg-white/86 px-2 py-2 text-center text-[11px] text-[#476664]"
             >
               {item}
             </span>
           ))}
         </div>
 
-        <div className="relative mt-auto grid grid-cols-[1.25fr_0.75fr] gap-4 pt-5">
-          <div className="rounded-[1.6rem] border border-[#dce5de] bg-white/84 p-4 shadow-[0_12px_28px_rgba(35,67,66,0.08)]">
-            <p className="text-xs tracking-[0.24em] text-[#6b8780] uppercase">今日小注</p>
-            <p className="mt-3 text-sm leading-7 text-[#516a68]">{scene.note}</p>
-            <p className="mt-4 text-xs leading-6 text-[#7b8f8d]">{posterFooterQuote}</p>
-            <p className="mt-3 break-all text-[11px] leading-5 text-[#8c9b9a]">
+        <div className="relative mt-auto grid grid-cols-[1.18fr_0.82fr] gap-3 pt-3">
+          <div className="rounded-[1.45rem] border border-[#dce5de] bg-white/84 p-3 shadow-[0_12px_28px_rgba(35,67,66,0.08)]">
+            <p className="text-[11px] tracking-[0.24em] text-[#6b8780] uppercase">今日小注</p>
+            <p className="mt-2.5 text-[13px] leading-6 text-[#516a68]">{scene.note}</p>
+            <p className="mt-3 text-[11px] leading-5 text-[#7b8f8d]">{posterFooterQuote}</p>
+            <p className="mt-2.5 truncate text-[10px] leading-5 text-[#8c9b9a]" title={shareUrl}>
               {shareUrl ? getDisplayUrl(shareUrl) : "正在读取当前页面地址..."}
             </p>
           </div>
 
-          <div className="rounded-[1.6rem] border border-[#dce5de] bg-white/88 p-3 shadow-[0_12px_28px_rgba(35,67,66,0.08)]">
-            <div className="flex h-full flex-col rounded-[1.25rem] bg-[linear-gradient(180deg,#f8fbf8_0%,#f4f1eb_100%)] p-2.5">
-              <div className="flex flex-1 items-center justify-center rounded-[1rem] border border-[#dbe6de] bg-white">
+          <div className="rounded-[1.45rem] border border-[#dce5de] bg-white/88 p-2.5 shadow-[0_12px_28px_rgba(35,67,66,0.08)]">
+            <div className="flex h-full flex-col rounded-[1.05rem] bg-[linear-gradient(180deg,#f8fbf8_0%,#f4f1eb_100%)] p-2">
+              <div className="flex min-h-[7.4rem] flex-1 items-center justify-center rounded-[0.95rem] border border-[#dbe6de] bg-white">
                 {loadingQr ? (
                   <LoaderCircle className="size-8 animate-spin text-[#6a8980]" />
                 ) : qrDataUrl ? (
                   <img
                     src={qrDataUrl}
                     alt="网站分享二维码"
-                    className="h-32 w-32"
+                    className="h-24 w-24"
                     crossOrigin="anonymous"
                   />
                 ) : (
                   <QrCode className="size-10 text-[#6a8980]" />
                 )}
               </div>
-              <p className="mt-3 text-center text-xs leading-5 text-[#56706e]">
+              <p className="mt-2.5 text-center text-[10px] leading-4 text-[#56706e]">
                 长按识别
                 <br />
                 来我园子里坐坐
@@ -402,7 +407,7 @@ const PosterSheet = forwardRef<HTMLDivElement, PosterSheetProps>(
           </div>
         </div>
 
-        <div className="relative mt-4 flex items-center justify-between text-xs text-[#667d7c]">
+        <div className="relative mt-3 shrink-0 flex items-center justify-between text-[10px] text-[#667d7c]">
           <span>{scene.stamp}</span>
           <span>
             {profile.city} · {profile.role}
