@@ -31,6 +31,7 @@ import {
   signaturePhrases,
   storyCards,
 } from "@/content/site";
+import { withBasePath } from "@/lib/asset-path";
 import { works } from "@/content/works";
 
 const featuredWorks = works.slice(0, 3);
@@ -108,7 +109,7 @@ export default function Home() {
               </div>
               <div className="relative">
                 <Image
-                  src="/photos/hero-portrait.png"
+                  src={withBasePath("/photos/hero-portrait.png")}
                   alt="蓝诗亦在樱花树下身着青色古风服装的主视觉照片"
                   width={1600}
                   height={1600}
@@ -315,7 +316,7 @@ export default function Home() {
               <TiltCard className="paper-panel h-full rounded-[1.8rem] p-4">
                 <div className="overflow-hidden rounded-[1.4rem] border border-white/65 bg-white/65">
                   <Image
-                    src={item.image}
+                    src={withBasePath(item.image)}
                     alt={item.title}
                     width={720}
                     height={880}

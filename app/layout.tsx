@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { AmbientToggle } from "@/components/ui/ambient-toggle";
 import { CursorBloom } from "@/components/ui/cursor-bloom";
 import { FloatingPetals } from "@/components/ui/floating-petals";
+import { withBasePath } from "@/lib/asset-path";
 import "./globals.css";
 
 const serifCn = Noto_Serif_SC({
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     "Tailwind CSS",
   ],
   icons: {
-    icon: "/favicon.svg",
+    icon: withBasePath("/favicon.svg"),
   },
 };
 

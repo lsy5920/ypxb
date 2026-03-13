@@ -5,6 +5,7 @@ import { PageBanner } from "@/components/ui/page-banner";
 import { Reveal } from "@/components/ui/reveal";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { galleryEntries } from "@/content/site";
+import { withBasePath } from "@/lib/asset-path";
 
 export const metadata: Metadata = {
   title: "照片簿",
@@ -33,7 +34,7 @@ export default function GalleryPage() {
             <TiltCard className="paper-panel h-full rounded-[1.85rem] p-4">
               <div className="overflow-hidden rounded-[1.5rem] border border-white/65 bg-white/65">
                 <Image
-                  src={item.image}
+                  src={withBasePath(item.image)}
                   alt={item.title}
                   width={720}
                   height={880}
