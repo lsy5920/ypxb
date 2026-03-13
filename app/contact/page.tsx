@@ -6,14 +6,14 @@ import { contactCards } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "投帖处",
-  description: "蓝诗亦的联系与互动页面：先把话头抛过来，剩下的交给真诚和一点风趣。",
+  description: "蓝诗亦的联系页：欢迎围绕创意、合作与真诚交流展开对话。",
 };
 
 const topics = [
-  "AI、创意工具、网页表达",
-  "商业脑洞、创业想法、合作灵感",
-  "日常散步、生活仪式感、情绪交流",
-  "如果你只是想认真夸一句“这页挺好看”，也欢迎",
+  "AI、网页表达与内容创作",
+  "商业想法、项目合作与灵感交换",
+  "生活观察、散步、仪式感与日常交流",
+  "如果你只是想认真说一句“这页挺好看”，也欢迎",
 ];
 
 export default function ContactPage() {
@@ -21,13 +21,13 @@ export default function ContactPage() {
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 lg:px-8">
       <PageBanner
         eyebrow="投帖处"
-        title="如果你也真诚、也有趣，那这页就是给你留的座位。"
-        description="现在还没有把真实联系方式填上去，所以先把交流气氛和入口位留好。你后续只要补上邮箱、微信或 GitHub，这里就能直接上岗。"
+        title="如果你愿意交流，这里有我正式对外开放的联系方式。"
+        description="邮箱和微信已经放好。无论是合作沟通、灵感交换，还是认真打个招呼，都欢迎联系。"
         aside={
           <div className="space-y-3">
-            <p>当前策略：先预留展示位，不乱编联系方式。</p>
-            <p>适合聊的内容：想法、合作、日常、情绪、成长。</p>
-            <p>推荐语气：直接、真诚、别只发“在吗”。</p>
+            <p>当前状态：联系入口已启用，可直接通过邮箱或微信找到我。</p>
+            <p>适合聊的内容：创意、合作、日常、成长与表达。</p>
+            <p>推荐方式：带一句自我介绍或来意，会更高效也更舒服。</p>
           </div>
         }
       />
@@ -40,7 +40,16 @@ export default function ContactPage() {
                 <Mail className="size-4" />
                 <span>{card.title}</span>
               </div>
-              <h2 className="mt-4 text-xl font-semibold text-ink">{card.value}</h2>
+              {card.href ? (
+                <a
+                  href={card.href}
+                  className="mt-4 block text-xl font-semibold text-ink underline decoration-emerald-200 underline-offset-4"
+                >
+                  {card.value}
+                </a>
+              ) : (
+                <h2 className="mt-4 text-xl font-semibold text-ink">{card.value}</h2>
+              )}
               <p className="mt-3 text-sm leading-7 text-ink/68">{card.note}</p>
             </div>
           </Reveal>
@@ -75,7 +84,7 @@ export default function ContactPage() {
 
             <div className="rounded-[1.6rem] border border-white/65 bg-white/72 p-5">
               <p className="text-lg leading-8 text-ink/82">
-                “最近有没有什么想做但还没做出来的点子？我这里正好也有一个。”
+                “最近在做什么有意思的事？如果你愿意，我也想和你交换一个想法。”
               </p>
             </div>
 
@@ -85,7 +94,7 @@ export default function ContactPage() {
                 <span>温柔提醒</span>
               </div>
               <p className="mt-3 text-sm leading-7 text-ink/68">
-                别一上来只发“在吗”。这三个字像敲门以后站门口不说话，多少有点让人替你着急。
+                如果方便的话，可以带一句简单的自我介绍或来意。这样我会更容易快速进入状态，也更能认真回应你。
               </p>
             </div>
 
@@ -95,7 +104,7 @@ export default function ContactPage() {
                 <span>补充说明</span>
               </div>
               <p className="mt-3 text-sm leading-7 text-ink/68">
-                等你后续把真实联系方式补进内容文件，这里就能从“预留投帖处”升级成真正可直达的联系页。
+                现在这里已经是正式可用的联系入口。后续如果增加 GitHub、社交账号或更多合作方式，也会继续放在这一页。
               </p>
             </div>
           </div>

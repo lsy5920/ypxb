@@ -8,7 +8,7 @@ import { works } from "@/content/works";
 
 export const metadata: Metadata = {
   title: "造物录",
-  description: "蓝诗亦的作品与企划记录：已落地的页面、正在酝酿的灵感，以及未来的方向。",
+  description: "蓝诗亦的项目与长期方向记录：已完成的实践、正在推进的计划，以及持续打磨的兴趣领域。",
 };
 
 export default function WorksPage() {
@@ -16,13 +16,13 @@ export default function WorksPage() {
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 lg:px-8">
       <PageBanner
         eyebrow="造物录"
-        title="作品位暂时不是满汉全席，但至少每一道菜都想认真摆盘。"
-        description="这里既放已经落地的项目，也诚实地摆出还在酝酿的企划。因为真正的成长，不是把草稿装成成就，而是让方向越写越清楚。"
+        title="作品还在继续增加，但我希望每一项都说得清楚、站得住。"
+        description="这里既放已经完成的内容，也放正在推进的方向。对外展示这件事，比“显得厉害”更重要的是清楚、真实、可验证。"
         aside={
           <div className="space-y-3">
-            <p>当前主力作品：这座国风个人主页本体。</p>
-            <p>后续重点方向：AI 创意实验、情商表达企划、商业脑洞记录。</p>
-            <p>风格关键词：有趣、清楚、靠谱、不空喊。 </p>
+            <p>当前已上线：这座国风个人主页本体。</p>
+            <p>后续重点方向：AI 实验、表达企划、商业思考记录。</p>
+            <p>整体标准：有判断、有完成度，也有继续打磨的空间。</p>
           </div>
         }
       />
@@ -71,7 +71,7 @@ export default function WorksPage() {
                 href={`/works/${work.slug}`}
                 className="mt-6 inline-flex items-center gap-2 text-sm text-emerald-950"
               >
-                点开这页造物记录
+                查看项目详情
                 <ArrowRight className="size-4" />
               </Link>
             </TiltCard>
@@ -87,7 +87,7 @@ export default function WorksPage() {
               <span>做法</span>
             </div>
             <p className="mt-4 text-lg leading-8 text-ink/82">
-              想法先落成结构，再打磨成体验。能讲清楚的东西，才更有可能真的做出来。
+              先把问题想清楚，再把结构搭稳，最后才是体验和表达。能讲清楚的东西，才更有可能做扎实。
             </p>
           </div>
 
@@ -97,7 +97,7 @@ export default function WorksPage() {
               <span>方向</span>
             </div>
             <p className="mt-4 text-lg leading-8 text-ink/82">
-              不想只做“看起来厉害”的东西，更想做“真有人愿意继续用”的东西。
+              比起追求“看起来厉害”，我更在意它是否真的有价值，是否值得被继续使用和记住。
             </p>
           </div>
 
@@ -107,7 +107,7 @@ export default function WorksPage() {
               <span>态度</span>
             </div>
             <p className="mt-4 text-lg leading-8 text-ink/82">
-              作品可以慢一点长大，但别长成空壳。好看要有，内容也要站得住。
+              作品可以慢一点长大，但不能只是空壳。审美要成立，内容也要经得起细看。
             </p>
           </div>
         </div>

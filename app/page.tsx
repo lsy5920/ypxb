@@ -130,8 +130,8 @@ export default function Home() {
       <section id="intro" className="section-anchor">
         <SectionTitle
           eyebrow="江湖小传"
-          title="这位少年，主打一个温柔靠谱，顺手还能把气氛抬起来"
-          description="如果把这张个人主页看成一张江湖名帖，那么这里就是落款之前最重要的自我说明。"
+          title="这是一张先看气质、再慢慢了解来路的个人名帖"
+          description="如果你刚认识我，这里会比一句自我介绍更完整：我是什么样的人、我在关心什么、我如何与世界相处。"
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.04fr_0.96fr]">
@@ -178,8 +178,8 @@ export default function Home() {
       <section id="values" className="section-anchor">
         <SectionTitle
           eyebrow="君子守则"
-          title="好笑归好笑，底线和分寸感必须站着"
-          description="你欣赏的“君子感”里，正直最重要。所以这一页不会只卖氛围，也要把靠谱明明白白摆出来。"
+          title="幽默是表达方式，正直和分寸才是底色"
+          description="你欣赏的“君子感”里，正直最重要。所以这一页不只是讲气质，也讲我更想守住的原则。"
         />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -201,8 +201,8 @@ export default function Home() {
       <section id="works" className="section-anchor">
         <SectionTitle
           eyebrow="造物录"
-          title="作品暂时不算满堂彩，但每个坑位都带着认真和野心"
-          description="现在最重要的作品，就是这张会呼吸的名帖。其他项目也已经排队等出场，不装成熟，但很想把东西做漂亮。"
+          title="作品还在持续增加，但每一项都希望说清楚自己在做什么"
+          description="我更愿意把未完成写成方向，把已完成写成结果。对外展示这件事，重要的不只是好看，还有是否清楚、真实、站得住。"
           action={
             <Link
               href="/works"
@@ -243,7 +243,7 @@ export default function Home() {
                   href={`/works/${work.slug}`}
                   className="mt-6 inline-flex items-center gap-2 text-sm text-emerald-950"
                 >
-                  点开看看这页怎么写的
+                  查看项目详情
                   <ArrowRight className="size-4" />
                 </Link>
               </TiltCard>
@@ -255,8 +255,8 @@ export default function Home() {
       <section id="blog" className="section-anchor">
         <SectionTitle
           eyebrow="随笔集"
-          title="照片已经到位，句子也继续认真营业"
-          description="你最想让别人先看到简介和随笔，所以这里继续把情绪、清醒和幽默写成可点击的诗页。"
+          title="这里记录我对生活、成长与关系的一些真实观察"
+          description="你最想让人先看到简介和随笔，所以这部分保留了最多的作者感，也最接近我平时的思考方式。"
           action={
             <Link
               href="/blog"
@@ -285,7 +285,7 @@ export default function Home() {
                   href={`/blog/${post.slug}`}
                   className="mt-5 inline-flex items-center gap-2 text-sm text-emerald-950"
                 >
-                  翻到这一页
+                  阅读全文
                   <ArrowRight className="size-4" />
                 </Link>
               </TiltCard>
@@ -297,8 +297,8 @@ export default function Home() {
       <section id="gallery" className="section-anchor">
         <SectionTitle
           eyebrow="照片簿"
-          title="照片已经到场，山野、花影和戏台一起证明气质在线"
-          description="主像放在首屏，其他三张收进照片簿：一张顶峰，一张山野，一张戏台，刚好把温柔、少年和反差感都拼完整。"
+          title="几张照片，刚好把温柔、少年气和反差感拼在一起"
+          description="首屏主像之外，山野与戏台也在补充另一面的我：安静的时候、投入的时候，以及认真表达的时候。"
           action={
             <Link
               href="/gallery"
@@ -344,14 +344,14 @@ export default function Home() {
               <span>互动区</span>
             </div>
             <h2 className="text-3xl font-semibold text-ink sm:text-4xl">
-              和我互动，比只看一眼简介更容易记住我
+              比起只看简介，我更希望你能在互动里感受到我的性格
             </h2>
             <p className="text-base leading-8 text-ink/70">
-              你说过网站更像“和我互动”。所以这里特意留了一处可玩的入口：可以抽签，可以看小提示，也可以顺便去投帖处坐坐。
+              这里保留一点轻松，也保留一点真诚。真正让人记住的，从来不只是信息本身，还有相处时的感觉。
             </p>
 
             <div className="grid gap-3">
-              {contactCards.slice(1, 4).map((item) => (
+              {contactCards.slice(0, 3).map((item) => (
                 <div
                   key={item.title}
                   className="rounded-[1.35rem] border border-white/65 bg-white/72 p-4"
@@ -360,7 +360,16 @@ export default function Home() {
                     <Flower2 className="size-4" />
                     <span>{item.title}</span>
                   </div>
-                  <p className="mt-3 text-lg text-ink">{item.value}</p>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="mt-3 block text-lg text-ink underline decoration-emerald-200 underline-offset-4"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="mt-3 text-lg text-ink">{item.value}</p>
+                  )}
                   <p className="mt-2 text-sm leading-7 text-ink/66">{item.note}</p>
                 </div>
               ))}
@@ -370,7 +379,7 @@ export default function Home() {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-emerald-100/85 px-5 py-3 text-sm font-medium text-emerald-950"
             >
-              去投帖处递个话头
+              去投帖处联系我
               <ArrowRight className="size-4" />
             </Link>
           </div>
@@ -389,7 +398,7 @@ export default function Home() {
               <span>收个尾</span>
             </div>
             <h2 className="text-3xl font-semibold text-ink sm:text-4xl">
-              山高路远，我们顶峰相见；要是路上还能笑出声，那就更好了。
+              愿每一次认识，都从好感开始，最后落在信任上。
             </h2>
             <p className="max-w-3xl text-base leading-8 text-ink/70">{profile.outro}</p>
           </div>
@@ -407,7 +416,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 rounded-full border border-emerald-200/70 bg-white/72 px-5 py-3 text-sm text-ink/75"
             >
               <ImageIcon className="size-4" />
-              去照片簿占坑
+              去看照片簿
             </Link>
             <Link
               href="/blog"

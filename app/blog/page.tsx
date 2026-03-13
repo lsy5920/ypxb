@@ -8,7 +8,7 @@ import { blogPosts } from "@/content/blog";
 
 export const metadata: Metadata = {
   title: "随笔集",
-  description: "蓝诗亦的随笔集：关于散步、仪式感、成长、关系与一边哈哈哈哈一边长大。",
+  description: "蓝诗亦的随笔集：关于生活、成长、表达与人与人之间的距离。",
 };
 
 export default function BlogPage() {
@@ -16,13 +16,13 @@ export default function BlogPage() {
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 lg:px-8">
       <PageBanner
         eyebrow="随笔集"
-        title="这里像一本会自己翻页的诗集，认真和嘴贫都写在里面。"
-        description="你最想让别人先看到照片、简介和随笔。既然照片暂时缺席，那就让文字先出场，把情绪和气质都讲清楚。"
+        title="这里收着我对生活、成长与关系的一些真实观察。"
+        description="如果说首页是名帖，这里更像旁白。文字不追求夸张，只希望坦诚、清醒，偶尔保留一点轻松。"
         aside={
           <div className="space-y-3">
-            <p>写作口味：真诚、温柔、有点俏皮。</p>
-            <p>内容范围：散步、成长、关系、仪式感、轻度自嘲。</p>
-            <p>阅读建议：配一杯饮料，边看边点头最好。</p>
+            <p>写作口味：真诚、温和、有分寸的幽默。</p>
+            <p>内容范围：散步、成长、表达、关系与日常感受。</p>
+            <p>阅读建议：慢一点读，会更接近真实的我。</p>
           </div>
         }
       />
@@ -64,7 +64,7 @@ export default function BlogPage() {
                   href={`/blog/${post.slug}`}
                   className="inline-flex items-center gap-2 text-emerald-950"
                 >
-                  翻到这一页
+                  阅读全文
                   <ArrowRight className="size-4" />
                 </Link>
               </div>
@@ -79,7 +79,7 @@ export default function BlogPage() {
           <span>写作声明</span>
         </div>
         <p className="mt-4 max-w-4xl text-lg leading-8 text-ink/78">
-          这些文字不是为了把自己包装得多高级，而是想诚实一点：我确实在一边哈哈哈哈，一边认真变好。会整活，但不会把生活写成空壳。
+          这些文字不是为了把自己包装得多特别，而是想把正在发生的思考留得更清楚一些。温柔、幽默、清醒，都是我想长期保留的部分。
         </p>
       </Reveal>
     </div>

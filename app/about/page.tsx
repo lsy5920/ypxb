@@ -16,8 +16,8 @@ export default function AboutPage() {
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 lg:px-8">
       <PageBanner
         eyebrow="小传"
-        title="如果把我写成一段人物设定，大概是温润书生、嘴贫侠客与清醒隐士轮流值班。"
-        description="这里不走简历口吻，也不装深沉。只是把我为什么像现在这样、平时怎么生活、最想守住什么，认真地说给你听。"
+        title="如果要用几个词概括我，大概是温和、清醒、幽默，也愿意把事情做踏实。"
+        description="这里不做夸张设定，只把我如何生活、如何做决定、如何理解人与人之间的相处，认真地说给你听。"
         aside={
           <div className="space-y-3">
             <p>{profile.name}，字 {profile.courtesyName}，常驻 {profile.city}。</p>
@@ -39,8 +39,8 @@ export default function AboutPage() {
       <section>
         <SectionTitle
           eyebrow="成长片段"
-          title="我的故事不算传奇，但每一步都挺像我"
-          description="没有刻意包装过的人生高光，只有那些让我越来越像自己的时刻。"
+          title="我的经历未必轰轰烈烈，但每一步都在让我更像自己"
+          description="没有刻意包装的传奇故事，只有一些真实发生过，也真实塑造了我的时刻。"
         />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -62,8 +62,8 @@ export default function AboutPage() {
       <section>
         <SectionTitle
           eyebrow="生活偏爱"
-          title="我对世界的喜欢，通常长成这些日常小细节"
-          description="有些爱好并不惊天动地，但它们足够稳定，所以也很能说明一个人。"
+          title="我喜欢的很多东西，都藏在这些平常的小细节里"
+          description="稳定的偏好往往比热闹的标签更能说明一个人，这里也最接近日常状态里的我。"
         />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -113,7 +113,7 @@ export default function AboutPage() {
               <span>朋友会怎么说</span>
             </div>
             <p className="mt-4 text-lg leading-8 text-ink/82">
-              阳光、心态好、能忍、脾气好、幽默、开心果。总结起来就是：相处起来不费劲，还挺会照顾场面。
+              阳光、心态稳、相处轻松，也愿意在热闹里照顾他人的感受。总结起来就是：和我待在一起，通常不会太有压力。
             </p>
           </div>
 
@@ -123,7 +123,7 @@ export default function AboutPage() {
               <span>我最怕的误解</span>
             </div>
             <p className="mt-4 text-lg leading-8 text-ink/82">
-              最不想被看成不成熟、不靠谱。所以哪怕网站会整活，核心表达也必须稳稳当当站着。
+              最不希望被看成轻浮或不靠谱。所以即使表达可以有趣，做事也一定要稳，态度也一定要真诚。
             </p>
           </div>
 
@@ -133,7 +133,7 @@ export default function AboutPage() {
               <span>十年后的感谢信</span>
             </div>
             <p className="mt-4 text-lg leading-8 text-ink/82">
-              我希望十年后的自己，会感谢现在还保留着这份可爱的性格，也一直没放弃继续成长的劲头。
+              我希望十年后的自己会感谢现在的我：仍然保有温度，也没有停下继续成长的脚步。
             </p>
           </div>
         </div>

@@ -9,13 +9,13 @@ export function SiteFooter() {
           <div>
             <p className="font-display text-3xl text-ink">{profile.courtesyName}</p>
             <p>
-              愿你今天也顺风顺水。如果恰好被这张名帖逗笑了一下，那我就算没白忙。
+              愿这张名帖能让你先感受到温度，再慢慢记住我这个人。
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
             <Link href="/contact" className="rounded-full bg-emerald-100/80 px-4 py-2 text-emerald-950">
-              去投帖处坐坐
+              前往联系页
             </Link>
             <span>© {new Date().getFullYear()} 蓝诗亦</span>
           </div>
