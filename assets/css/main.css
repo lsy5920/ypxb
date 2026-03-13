@@ -1757,7 +1757,7 @@ textarea:focus {
   .practice-grid,
   .principle-grid,
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .liutie-side {
@@ -1774,7 +1774,10 @@ textarea:focus {
   .oracle-actions,
   .poster-actions,
   .contact-method-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.7rem;
+    width: 100%;
   }
 
   .hero-actions-row .button,
@@ -1792,11 +1795,14 @@ textarea:focus {
   }
 
   .daily-card,
-  .daily-card.wide,
   .photo-card,
-  .photo-feature,
   .photo-tall,
-  .photo-small,
+  .photo-small {
+    grid-column: span 6;
+  }
+
+  .daily-card.wide,
+  .photo-feature,
   .photo-wide {
     grid-column: span 12;
   }
@@ -1834,6 +1840,12 @@ textarea:focus {
 
   .poster-tags span:nth-child(4) {
     display: none;
+  }
+
+  .fact-deck > :last-child,
+  .practice-grid > :last-child,
+  .contact-grid > :last-child {
+    grid-column: 1 / -1;
   }
 
   .poster-qr-frame {
@@ -1888,6 +1900,19 @@ textarea:focus {
 
   .hero-visual {
     order: 2;
+  }
+
+  .fact-deck,
+  .practice-grid,
+  .principle-grid,
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fact-deck > :last-child,
+  .practice-grid > :last-child,
+  .contact-grid > :last-child {
+    grid-column: 1 / -1;
   }
 
   .hero-lead,
@@ -2008,6 +2033,24 @@ textarea:focus {
     border-radius: 22px;
   }
 
+  .daily-card,
+  .photo-card,
+  .photo-tall,
+  .photo-small {
+    grid-column: span 6;
+  }
+
+  .daily-card.wide,
+  .photo-feature,
+  .photo-wide {
+    grid-column: span 12;
+  }
+
+  .daily-grid,
+  .gallery-grid {
+    gap: 0.75rem;
+  }
+
   .photo-overlay {
     padding: 1rem;
     background: linear-gradient(180deg, rgba(20, 28, 24, 0.02), rgba(20, 28, 24, 0.72));
@@ -2024,6 +2067,31 @@ textarea:focus {
 
   .contact-method {
     padding: 0.95rem;
+  }
+
+  .hero-actions-row,
+  .contact-actions,
+  .oracle-actions,
+  .poster-actions,
+  .contact-method-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .hero-actions-row .button,
+  .contact-actions .button,
+  .oracle-actions .button,
+  .poster-actions .button,
+  .contact-method-actions .button,
+  .contact-method-actions .button.text,
+  .contact-method-actions a.button {
+    width: 100%;
+  }
+
+  .contact-grid > .contact-method:last-child {
+    grid-column: 1 / -1;
   }
 
   .lightbox {
